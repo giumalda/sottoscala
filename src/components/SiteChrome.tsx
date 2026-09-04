@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import {
   Menu as MenuIcon,
   X,
@@ -7,6 +7,8 @@ import {
   MapPin,
   Clock,
   Instagram,
+  Facebook,
+  MessageCircle,
   Leaf,
   WheatOff,
   ShoppingBag,
@@ -17,7 +19,20 @@ import logoAsset from "../assets/logo-sottoscala.png.asset.json";
 
 export const PHONE_DISPLAY = "351 466 7813";
 export const PHONE_TEL = "tel:+393514667813";
+export const WHATSAPP_URL = "https://wa.me/393514667813";
 export const ORDER_URL = "https://app.moremenu.it/menu/sottoscala";
+export const DELIVEROO_URL = "https://deliveroo.it/it/search?q=Sottoscala%20Mottola";
+export const INSTAGRAM_URL = "https://www.instagram.com/sottoscala___";
+export const FACEBOOK_URL = "https://www.facebook.com/people/Sottoscala/61554464331306/";
+
+const NAV = [
+  { to: "/", label: "Home" },
+  { to: "/menu", label: "Menù" },
+  { to: "/chi-siamo", label: "Chi Siamo" },
+  { to: "/galleria", label: "Galleria" },
+  { to: "/contatti", label: "Contatti" },
+  { to: "/lavora-con-noi", label: "Lavora con Noi" },
+] as const;
 
 export function Logo({ className = "h-9" }: { className?: string }) {
   return (
@@ -34,57 +49,39 @@ export function Logo({ className = "h-9" }: { className?: string }) {
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
-  const links = (
-    <>
-      <Link
-        to="/"
-        hash="chi-siamo"
-        onClick={() => setOpen(false)}
-        className="text-base text-muted-foreground transition-colors hover:text-foreground"
-      >
-        Chi Siamo
-      </Link>
-      <Link
-        to="/menu"
-        onClick={() => setOpen(false)}
-        className="text-base text-muted-foreground transition-colors hover:text-foreground"
-      >
-        Menù
-      </Link>
-      <Link
-        to="/"
-        hash="contatti"
-        onClick={() => setOpen(false)}
-        className="text-base text-muted-foreground transition-colors hover:text-foreground"
-      >
-        Contatti
-      </Link>
-    </>
-  );
-
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
-      <div className="glass mx-auto max-w-6xl rounded-3xl">
-        <nav className="flex items-center justify-between px-5 py-3">
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-3 sm:pt-4">
+      <div className="glass mx-auto max-w-6xl overflow-hidden rounded-3xl">
+        <nav className="flex items-center justify-between px-4 py-2.5 sm:px-5 sm:py-3">
           <Link to="/" className="flex items-center" aria-label="Sottoscala — home">
-            <Logo className="h-8 md:h-9" />
+            <Logo className="h-7 sm:h-8 md:h-9" />
           </Link>
 
-          <div className="hidden items-center gap-8 md:flex">
-            {links}
+          <div className="hidden items-center gap-6 lg:flex">
+            {NAV.slice(1).map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                activeProps={{ className: "text-foreground font-semibold" }}
+                className="text-base text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {l.label}
+              </Link>
+            ))}
             <a
-              href={ORDER_URL}
+              href={DELIVEROO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-primary px-5 py-2.5 text-base font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
+              className="rounded-full bg-[oklch(0.85_0.09_205)] px-5 py-2.5 text-base font-semibold text-[oklch(0.24_0.06_205)] transition-all duration-200 hover:brightness-110 active:scale-95"
             >
-              Ordina / Prenota
+              Ordina con Deliveroo
             </a>
           </div>
 
           <button
-            className="p-2 text-foreground md:hidden"
+            className="p-2 text-foreground transition-transform duration-200 active:scale-90 lg:hidden"
             onClick={() => setOpen(!open)}
+            aria-expanded={open}
             aria-label={open ? "Chiudi menu" : "Apri menu"}
           >
             {open ? <X size={24} /> : <MenuIcon size={24} />}
@@ -92,16 +89,26 @@ export function SiteHeader() {
         </nav>
 
         {open && (
-          <div className="border-t border-border/60 px-5 py-6 md:hidden">
-            <div className="flex flex-col gap-5">
-              {links}
+          <div className="nav-panel border-t border-border/60 px-5 py-6 lg:hidden">
+            <div className="flex flex-col gap-1">
+              {NAV.map((l) => (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  onClick={() => setOpen(false)}
+                  activeProps={{ className: "bg-foreground/10 text-foreground" }}
+                  className="rounded-2xl px-3 py-3 text-lg font-medium text-foreground transition-colors hover:bg-foreground/10"
+                >
+                  {l.label}
+                </Link>
+              ))}
               <a
-                href={ORDER_URL}
+                href={DELIVEROO_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 rounded-full bg-primary px-5 py-3 text-center text-base font-semibold text-primary-foreground"
+                className="mt-3 rounded-full bg-[oklch(0.85_0.09_205)] px-5 py-3 text-center text-base font-semibold text-[oklch(0.24_0.06_205)]"
               >
-                Ordina / Prenota
+                Ordina con Deliveroo
               </a>
             </div>
           </div>
@@ -111,13 +118,27 @@ export function SiteHeader() {
   );
 }
 
+export function WhatsAppFab() {
+  return (
+    <a
+      href={WHATSAPP_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Scrivici su WhatsApp"
+      className="glass fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full text-foreground shadow-lg transition-all duration-200 hover:scale-105 hover:brightness-125 active:scale-95"
+    >
+      <MessageCircle size={26} aria-hidden />
+    </a>
+  );
+}
+
 export function SiteFooter() {
   return (
     <footer id="contatti" className="px-4 pb-8">
-      <div className="glass mx-auto max-w-6xl rounded-4xl px-6 py-16 sm:px-10">
+      <div className="glass mx-auto max-w-6xl rounded-4xl px-6 py-14 sm:px-10">
         <Logo className="h-10" />
 
-        <div className="mt-12 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <h3 className="flex items-center gap-2 text-lg font-semibold">
               <MapPin size={18} className="text-primary" aria-hidden />
@@ -151,20 +172,27 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h3 className="flex items-center gap-2 text-lg font-semibold">
-              <Instagram size={18} className="text-primary" aria-hidden />
-              Social
-            </h3>
-            <p className="mt-4 text-base">
+            <h3 className="text-lg font-semibold">Social</h3>
+            <div className="mt-4 flex flex-col gap-3 text-base">
               <a
-                href="https://www.instagram.com/sottoscala___"
+                href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground hover:underline"
+                className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
               >
+                <Instagram size={18} className="text-primary" aria-hidden />
                 @sottoscala___
               </a>
-            </p>
+              <a
+                href={FACEBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <Facebook size={18} className="text-primary" aria-hidden />
+                Sottoscala su Facebook
+              </a>
+            </div>
           </div>
 
           <div>
@@ -190,19 +218,31 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-14 overflow-hidden rounded-3xl border border-border/60">
+        <div className="mt-12 overflow-hidden rounded-3xl border border-border/60">
           <iframe
             title="Mappa — Sottoscala, Via Giovanni Amendola 1, Mottola"
             src="https://www.openstreetmap.org/export/embed.html?bbox=17.0250%2C40.6280%2C17.0460%2C40.6390&layer=mapnik&marker=40.6335%2C17.0356"
-            className="h-72 w-full grayscale invert"
+            className="h-72 w-full"
             loading="lazy"
           />
         </div>
 
-        <p className="mt-10 text-sm text-muted-foreground">
+        <p className="mt-8 text-sm text-muted-foreground">
           © {new Date().getFullYear()} Sottoscala — Mottola. Tutti i diritti riservati.
         </p>
       </div>
     </footer>
+  );
+}
+
+/** Layout globale: header, contenuto, footer e FAB WhatsApp su ogni pagina. */
+export function SiteLayout({ children }: { children: ReactNode }) {
+  return (
+    <div className="min-h-screen">
+      <SiteHeader />
+      {children}
+      <SiteFooter />
+      <WhatsAppFab />
+    </div>
   );
 }

@@ -1,9 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Sparkles } from "lucide-react";
 
-import { getMenu } from "../lib/menu.functions";
+import {
+  getMenu,
+  categoryEmoji,
+  categorySlug,
+} from "../lib/menu.functions";
 import { MenuItemCard, ALLERGEN_LABELS } from "../components/MenuItemCard";
-import { SiteHeader, SiteFooter, ORDER_URL } from "../components/SiteChrome";
+import { CategorySlider } from "../components/CategorySlider";
+import { SiteLayout, DELIVEROO_URL } from "../components/SiteChrome";
 
 export const Route = createFileRoute("/menu")({
   head: () => ({
@@ -34,39 +39,29 @@ export const Route = createFileRoute("/menu")({
   component: MenuPage,
 });
 
-function slugify(s: string) {
-  return s
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
-
 function MenuPage() {
   const categories = Route.useLoaderData();
 
   return (
-    <div className="min-h-screen">
-      <SiteHeader />
-
-      <main className="mx-auto max-w-6xl px-4 pb-24 pt-32 sm:px-6">
+    <SiteLayout>
+      <main className="mx-auto max-w-6xl px-4 pb-24 pt-24 sm:px-6 sm:pt-32">
         <section className="glass overflow-hidden rounded-4xl">
-          <div className="px-6 py-14 sm:px-12">
+          <div className="px-6 py-10 sm:px-12 sm:py-14">
             <h1 className="text-4xl font-extrabold tracking-tight md:text-6xl">
               Il nostro Menù
             </h1>
-            <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
+            <p className="mt-3 max-w-2xl text-lg text-muted-foreground">
               Tradizione pugliese e anima asiatica: {categories.length} sezioni,
               foto reali, prezzi e allergeni sempre aggiornati.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3">
               <a
-                href={ORDER_URL}
+                href={DELIVEROO_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-primary px-7 py-3 text-base font-semibold text-primary-foreground"
+                className="rounded-full bg-[oklch(0.85_0.09_205)] px-7 py-3 text-base font-semibold text-[oklch(0.24_0.06_205)] transition-all duration-200 hover:brightness-110 active:scale-95"
               >
-                Ordina online
+                Ordina con Deliveroo
               </a>
               <span className="glass-soft flex items-center gap-2 rounded-full px-5 py-3 text-base">
                 <Sparkles size={16} className="text-accent" aria-hidden />
@@ -76,27 +71,24 @@ function MenuPage() {
           </div>
         </section>
 
-        {/* Navigazione categorie */}
-        <nav
-          aria-label="Categorie del menù"
-          className="glass sticky top-24 z-30 mt-8 rounded-3xl px-3 py-3"
-        >
-          <ul className="flex gap-2 overflow-x-auto pb-1">
-            {categories.map((c) => (
-              <li key={c.id}>
-                <a
-                  href={`#${slugify(c.name)}`}
-                  className="block whitespace-nowrap rounded-full px-4 py-2 text-base text-muted-foreground transition-colors hover:bg-foreground/10 hover:text-foreground"
-                >
-                  {c.name}
-                </a>
-              </li>
-            ))}
-          </ul>
+        {/* Slider categorie */}
+        <nav aria-label="Categorie del menù" className="mt-8">
+          <CategorySlider
+            categories={categories.map((c) => ({
+              id: c.id,
+              name: c.name,
+              coverImageUrl: c.coverImageUrl,
+              count: c.menuItems.length,
+            }))}
+          />
         </nav>
 
         {categories.map((c) => (
-          <section key={c.id} id={slugify(c.name)} className="scroll-mt-44 pt-16">
+          <section
+            key={c.id}
+            id={categorySlug(c.name)}
+            className="scroll-mt-28 pt-14"
+          >
             <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
               {c.coverImageUrl && (
                 <img
@@ -108,8 +100,12 @@ function MenuPage() {
               )}
               <div>
                 <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-                  {c.name}
+                  {categoryEmoji(c.name)} {c.name}
                 </h2>
+                <p className="mt-1 text-base text-muted-foreground">
+                  {c.menuItems.length}{" "}
+                  {c.menuItems.length === 1 ? "piatto" : "piatti"}
+                </p>
                 {c.description && (
                   <p className="mt-2 text-lg text-muted-foreground">
                     {c.description.replace(/<[^>]*>/g, " ").trim()}
@@ -118,7 +114,7 @@ function MenuPage() {
               </div>
             </div>
 
-            <ul className="mt-8 grid gap-4 lg:grid-cols-2">
+            <ul className="mt-8 grid items-start gap-4 lg:grid-cols-2">
               {c.menuItems.map((item) => (
                 <MenuItemCard key={item.id} item={item} />
               ))}
@@ -144,8 +140,6 @@ function MenuPage() {
           </p>
         </section>
       </main>
-
-      <SiteFooter />
-    </div>
+    </SiteLayout>
   );
 }

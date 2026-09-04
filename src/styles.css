@@ -130,9 +130,26 @@
   backdrop-filter: blur(20px) saturate(150%);
 }
 
-/* Sfumatura sfocata che scende dall'alto sopra le immagini */
+/* Sfumatura sfocata leggera, solo dietro titolo e sottotitolo */
 @utility blur-veil-top {
-  backdrop-filter: blur(26px);
-  mask-image: linear-gradient(to bottom, black 0%, black 42%, transparent 100%);
+  backdrop-filter: blur(16px);
+  mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
 }
+
+/* Pannello di navigazione mobile: sfondo pieno, testo sempre leggibile */
+@utility nav-panel {
+  background: color-mix(in oklch, var(--color-background) 96%, transparent);
+  backdrop-filter: blur(40px) saturate(160%);
+}
+
+/* Card categoria in vetro sopra foto reale */
+@utility glass-card {
+  background: color-mix(in oklch, var(--color-background) 34%, transparent);
+  border: 1px solid color-mix(in oklch, var(--color-foreground) 30%, transparent);
+  backdrop-filter: blur(14px) saturate(150%);
+  box-shadow:
+    0 1px 0 0 color-mix(in oklch, var(--color-foreground) 28%, transparent) inset,
+    0 18px 40px -24px oklch(0.1 0.04 165 / 0.9);
+}
+
 
