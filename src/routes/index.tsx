@@ -1,12 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Star, Sparkles } from "lucide-react";
 
-import {
-  SiteHeader,
-  SiteFooter,
-  ORDER_URL,
-  PHONE_TEL,
-} from "../components/SiteChrome";
+import { SiteLayout, ORDER_URL, DELIVEROO_URL } from "../components/SiteChrome";
 
 const IMG = "https://api.moremenu.it/v1/user-files";
 const HERO = `${IMG}/menu-category-cover-image-e81ff233-8d95-45a7-b3ad-f5b1d4462b97.jpeg`;
@@ -85,11 +80,9 @@ function Index() {
   ];
 
   return (
-    <div className="min-h-screen">
-      <SiteHeader />
-
-      {/* Hero */}
-      <section className="relative flex min-h-screen items-end overflow-hidden px-4 pb-14 pt-32">
+    <SiteLayout>
+      {/* Hero compatta */}
+      <section className="relative flex min-h-[68vh] items-end overflow-hidden px-4 pb-8 pt-24 sm:min-h-[72vh] sm:pb-10">
         <img
           src={HERO}
           alt="Cocktail signature del Sottoscala serviti al bancone"
@@ -97,58 +90,79 @@ function Index() {
           width={1600}
           height={1200}
         />
-        {/* Velo sfocato che scende dall'alto sopra le scritte */}
-        <div className="blur-veil-top pointer-events-none absolute inset-x-0 top-0 h-2/3" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/70 via-background/40 to-background" />
+        <div className="blur-veil-top pointer-events-none absolute inset-x-0 top-0 h-1/3" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/45 via-background/25 to-background" />
 
         <div className="relative mx-auto w-full max-w-6xl">
-          <div className="glass max-w-3xl rounded-4xl px-7 py-10 sm:px-12 sm:py-14">
-            <p className="flex items-center gap-2 text-base font-medium text-accent">
-              <Sparkles size={16} aria-hidden />
-              Bistrò · Cocktail Bar · Sushi & Pinsa — Mottola
+          <div className="glass max-w-2xl rounded-4xl px-5 py-6 sm:px-8 sm:py-8">
+            <p className="flex items-center gap-2 text-sm font-medium text-accent sm:text-base">
+              <Sparkles size={15} aria-hidden />
+              Bistrò · Cocktail Bar · Sushi &amp; Pinsa — Mottola
             </p>
-            <h1 className="mt-4 text-5xl font-extrabold leading-[1.05] tracking-tight md:text-7xl">
+            <h1 className="mt-2 text-3xl font-extrabold leading-[1.02] tracking-tight sm:text-5xl md:text-6xl">
               Tradizione Pugliese.
               <br />
               Anima Asiatica.
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-muted-foreground md:text-xl">
-              Un'esperienza culinaria avvolgente nel centro di Mottola. Dal
-              Capocollo di Martina Franca al sushi fresco, accompagnati dai
-              nostri signature cocktail.
+            <p className="mt-3 max-w-lg text-base leading-snug text-muted-foreground sm:text-lg">
+              Un'esperienza culinaria avvolgente nel centro di Mottola, tra
+              sushi fresco, pinse gourmet e signature cocktail.
             </p>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link
-                to="/menu"
-                className="rounded-full bg-primary px-8 py-4 text-center text-lg font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
-              >
-                Sfoglia il Menù
-              </Link>
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
               <a
-                href={PHONE_TEL}
-                className="rounded-full border border-foreground/40 px-8 py-4 text-center text-lg font-semibold text-foreground transition-colors hover:bg-foreground/10"
+                href={DELIVEROO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-[oklch(0.85_0.09_205)] px-7 py-3.5 text-center text-base font-semibold text-[oklch(0.24_0.06_205)] shadow-lg transition-all duration-300 ease-out hover:-translate-y-0.5 hover:brightness-110 active:translate-y-0 active:scale-95 sm:text-lg"
               >
-                Chiama per Prenotare
+                Ordina con Deliveroo
               </a>
+              <Link
+                to="/chi-siamo"
+                className="glass rounded-full px-7 py-3.5 text-center text-base font-semibold text-foreground transition-all duration-300 ease-out hover:-translate-y-0.5 hover:brightness-125 active:translate-y-0 active:scale-95 sm:text-lg"
+              >
+                La nostra storia
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Chi Siamo */}
-      <section id="chi-siamo" className="mx-auto max-w-6xl scroll-mt-32 px-4 py-28 sm:px-6">
-        <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
-          <div className="glass rounded-4xl p-8 sm:p-12">
+      {/* Chi Siamo — storytelling esteso */}
+      <section
+        id="chi-siamo"
+        className="mx-auto max-w-6xl scroll-mt-32 px-4 py-20 sm:px-6"
+      >
+        <div className="grid items-center gap-10 md:grid-cols-2 md:gap-14">
+          <div className="glass rounded-4xl p-8 sm:p-10">
             <h2 className="text-3xl font-bold leading-snug tracking-tight md:text-4xl">
               Due Fratelli, Un SushiMan, Un'Atmosfera Unica
             </h2>
-            <p className="mt-6 text-lg text-muted-foreground">
-              Nato dall'idea di due fratelli, il Sottoscala è un rifugio intimo e
-              raffinato. Uniamo ingredienti del nostro territorio, come la
-              Stracciatella Gioiella e l'Olio Masseria Amodio, all'arte del sushi
-              e della cucina asiatica. Il tutto accompagnato da una selezione
-              musicale retrò e una terrazza con vista sul golfo.
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+              Il Sottoscala nasce dall'idea di due fratelli innamorati di
+              Mottola: un rifugio piccolo e ovattato, luci basse, legno e pietra
+              e una selezione musicale retrò che accompagna la serata senza mai
+              coprire le voci. Chi entra la prima volta, di solito, torna.
             </p>
+            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+              Pochi gradini più su c'è la terrazza: nelle sere limpide lo sguardo
+              corre fino al golfo e alle luci della costa. È il posto dove i
+              nostri ospiti si fermano più a lungo, con un calice o un signature
+              cocktail in mano.
+            </p>
+            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+              Con l'arrivo del nostro Sushiman la cucina ha trovato la sua voce:
+              il Capocollo di Martina Franca, la stracciatella Gioiella e l'olio
+              della Masseria Amodio incontrano l'arte dei roll, dei bao e dei
+              crudi. Due tradizioni lontane che, nello stesso piatto, si
+              rispettano.
+            </p>
+            <Link
+              to="/chi-siamo"
+              className="mt-7 inline-block rounded-full bg-primary px-7 py-3.5 text-lg font-semibold text-primary-foreground transition-transform hover:scale-[1.03] active:scale-95"
+            >
+              Leggi la nostra storia
+            </Link>
           </div>
           <img
             src={COVER}
@@ -240,6 +254,12 @@ function Index() {
             </figure>
           ))}
         </div>
+
+        <p className="mt-6 max-w-3xl text-sm text-muted-foreground opacity-60">
+          Le recensioni mostrate sono estratte dinamicamente da piattaforme
+          verificate di terze parti. I dati sono trattati in conformità alla
+          nostra Privacy Policy e al GDPR.
+        </p>
       </section>
 
       {/* Ordina */}
@@ -263,8 +283,6 @@ function Index() {
           </a>
         </div>
       </section>
-
-      <SiteFooter />
-    </div>
+    </SiteLayout>
   );
 }
