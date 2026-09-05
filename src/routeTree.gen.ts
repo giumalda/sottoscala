@@ -10,11 +10,35 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ChiSiamoRouteImport } from './routes/chi-siamo'
+import { Route as ContattiRouteImport } from './routes/contatti'
+import { Route as GalleriaRouteImport } from './routes/galleria'
+import { Route as LavoraConNoiRouteImport } from './routes/lavora-con-noi'
 import { Route as MenuRouteImport } from './routes/menu'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChiSiamoRoute = ChiSiamoRouteImport.update({
+  id: '/chi-siamo',
+  path: '/chi-siamo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContattiRoute = ContattiRouteImport.update({
+  id: '/contatti',
+  path: '/contatti',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleriaRoute = GalleriaRouteImport.update({
+  id: '/galleria',
+  path: '/galleria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LavoraConNoiRoute = LavoraConNoiRouteImport.update({
+  id: '/lavora-con-noi',
+  path: '/lavora-con-noi',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MenuRoute = MenuRouteImport.update({
@@ -25,27 +49,52 @@ const MenuRoute = MenuRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/chi-siamo': typeof ChiSiamoRoute
+  '/contatti': typeof ContattiRoute
+  '/galleria': typeof GalleriaRoute
+  '/lavora-con-noi': typeof LavoraConNoiRoute
   '/menu': typeof MenuRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/chi-siamo': typeof ChiSiamoRoute
+  '/contatti': typeof ContattiRoute
+  '/galleria': typeof GalleriaRoute
+  '/lavora-con-noi': typeof LavoraConNoiRoute
   '/menu': typeof MenuRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/chi-siamo': typeof ChiSiamoRoute
+  '/contatti': typeof ContattiRoute
+  '/galleria': typeof GalleriaRoute
+  '/lavora-con-noi': typeof LavoraConNoiRoute
   '/menu': typeof MenuRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/menu'
+  fullPaths:
+    '/' | '/chi-siamo' | '/contatti' | '/galleria' | '/lavora-con-noi' | '/menu'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/menu'
-  id: '__root__' | '/' | '/menu'
+  to:
+    '/' | '/chi-siamo' | '/contatti' | '/galleria' | '/lavora-con-noi' | '/menu'
+  id:
+    | '__root__'
+    | '/'
+    | '/chi-siamo'
+    | '/contatti'
+    | '/galleria'
+    | '/lavora-con-noi'
+    | '/menu'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChiSiamoRoute: typeof ChiSiamoRoute
+  ContattiRoute: typeof ContattiRoute
+  GalleriaRoute: typeof GalleriaRoute
+  LavoraConNoiRoute: typeof LavoraConNoiRoute
   MenuRoute: typeof MenuRoute
 }
 
@@ -56,6 +105,34 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chi-siamo': {
+      id: '/chi-siamo'
+      path: '/chi-siamo'
+      fullPath: '/chi-siamo'
+      preLoaderRoute: typeof ChiSiamoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contatti': {
+      id: '/contatti'
+      path: '/contatti'
+      fullPath: '/contatti'
+      preLoaderRoute: typeof ContattiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/galleria': {
+      id: '/galleria'
+      path: '/galleria'
+      fullPath: '/galleria'
+      preLoaderRoute: typeof GalleriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lavora-con-noi': {
+      id: '/lavora-con-noi'
+      path: '/lavora-con-noi'
+      fullPath: '/lavora-con-noi'
+      preLoaderRoute: typeof LavoraConNoiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/menu': {
@@ -70,6 +147,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChiSiamoRoute: ChiSiamoRoute,
+  ContattiRoute: ContattiRoute,
+  GalleriaRoute: GalleriaRoute,
+  LavoraConNoiRoute: LavoraConNoiRoute,
   MenuRoute: MenuRoute,
 }
 export const routeTree = rootRouteImport
