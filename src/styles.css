@@ -132,8 +132,8 @@
 
 /* Sfumatura sfocata leggera, solo dietro titolo e sottotitolo */
 @utility blur-veil-top {
-  backdrop-filter: blur(16px);
-  mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+  backdrop-filter: blur(5px);
+  mask-image: linear-gradient(to bottom, black 0%, black 35%, transparent 100%);
 }
 
 /* Pannello di navigazione mobile: sfondo pieno, testo sempre leggibile */
