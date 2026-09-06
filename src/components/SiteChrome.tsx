@@ -15,6 +15,10 @@ import {
 } from "lucide-react";
 
 import logoAsset from "../assets/logo-sottoscala.png.asset.json";
+import { WhatsAppIcon } from "./WhatsAppIcon";
+
+export const GOOGLE_MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=Sottoscala%20Mottola";
 
 export const PHONE_DISPLAY = "351 466 7813";
 export const PHONE_TEL = "tel:+393514667813";
