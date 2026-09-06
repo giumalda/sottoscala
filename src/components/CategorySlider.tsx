@@ -6,7 +6,7 @@ import { categoryEmoji, categorySlug } from "../lib/menu.functions";
 type Cat = {
   id: string;
   name: string;
-  coverImageUrl?: string;
+  coverImageUrl?: string | undefined;
   count: number;
 };
 
