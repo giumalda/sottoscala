@@ -8,7 +8,6 @@ import {
   Clock,
   Instagram,
   Facebook,
-  MessageCircle,
   Leaf,
   WheatOff,
   ShoppingBag,
@@ -125,9 +124,11 @@ export function WhatsAppFab() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Scrivici su WhatsApp"
-      className="glass fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full text-foreground shadow-lg transition-all duration-200 hover:scale-105 hover:brightness-125 active:scale-95"
+      className="wa-glow glass fixed bottom-5 right-5 z-50 flex h-16 w-16 items-center justify-center rounded-full transition-transform duration-200 hover:scale-105 active:scale-95"
     >
-      <MessageCircle size={26} aria-hidden />
+      <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[oklch(0.72_0.19_145)] text-[oklch(0.99_0_0)]">
+        <WhatsAppIcon className="h-7 w-7" />
+      </span>
     </a>
   );
 }
@@ -218,16 +219,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 overflow-hidden rounded-3xl border border-border/60">
-          <iframe
-            title="Mappa — Sottoscala, Via Giovanni Amendola 1, Mottola"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=17.0250%2C40.6280%2C17.0460%2C40.6390&layer=mapnik&marker=40.6335%2C17.0356"
-            className="h-72 w-full"
-            loading="lazy"
-          />
-        </div>
-
-        <p className="mt-8 text-sm text-muted-foreground">
+        <p className="mt-12 text-sm text-muted-foreground">
           © {new Date().getFullYear()} Sottoscala — Mottola. Tutti i diritti riservati.
         </p>
       </div>
