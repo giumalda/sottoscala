@@ -14,7 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      job_applications: {
+        Row: {
+          cognome: string
+          created_at: string
+          cv_filename: string
+          cv_path: string
+          email: string
+          id: string
+          messaggio: string | null
+          nome: string
+          ruolo: string
+        }
+        Insert: {
+          cognome: string
+          created_at?: string
+          cv_filename: string
+          cv_path: string
+          email: string
+          id?: string
+          messaggio?: string | null
+          nome: string
+          ruolo: string
+        }
+        Update: {
+          cognome?: string
+          created_at?: string
+          cv_filename?: string
+          cv_path?: string
+          email?: string
+          id?: string
+          messaggio?: string | null
+          nome?: string
+          ruolo?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
