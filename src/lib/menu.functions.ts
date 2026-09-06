@@ -11,24 +11,24 @@ export type MenuItem = {
   id: string;
   slug: string;
   name: string;
-  price?: number;
-  description?: string;
-  coverImageUrl?: string;
-  allergens?: string[];
-  hasAr?: boolean;
-  hidden?: boolean;
-  position?: number;
-  mediaArThreeModel?: ArModel;
+  price?: number | undefined;
+  description?: string | undefined;
+  coverImageUrl?: string | undefined;
+  allergens?: string[] | undefined;
+  hasAr?: boolean | undefined;
+  hidden?: boolean | undefined;
+  position?: number | undefined;
+  mediaArThreeModel?: ArModel | undefined;
 };
 
 export type MenuCategory = {
   id: string;
   slug: string;
   name: string;
-  description?: string;
-  coverImageUrl?: string;
-  hidden?: boolean;
-  position?: number;
+  description?: string | undefined;
+  coverImageUrl?: string | undefined;
+  hidden?: boolean | undefined;
+  position?: number | undefined;
   menuItems: MenuItem[];
 };
 
