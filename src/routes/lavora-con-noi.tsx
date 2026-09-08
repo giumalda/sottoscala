@@ -1,8 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
-import { Upload, CheckCircle2 } from "lucide-react";
+import { Upload, CheckCircle2, Loader2 } from "lucide-react";
 
 import { SiteLayout, WHATSAPP_URL } from "../components/SiteChrome";
+import { submitApplication } from "../lib/careers.functions";
+
+/** Converte il file in base64 senza superare lo stack su file grandi. */
+function toBase64(file: File) {
+  return new Promise<string>((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error("Lettura del file non riuscita."));
+    reader.onload = () => {
+      const result = String(reader.result);
+      resolve(result.slice(result.indexOf(",") + 1));
+    };
+    reader.readAsDataURL(file);
+  });
+}
 
 export const Route = createFileRoute("/lavora-con-noi")({
   head: () => ({
