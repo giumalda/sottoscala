@@ -49,11 +49,11 @@ export function CategorySlider({ categories }: { categories: Cat[] }) {
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               )}
-              <span className="glass-card relative flex h-full w-full flex-col justify-center rounded-[999px] px-6">
+              <span className="glass-card relative flex h-full w-full flex-col justify-end rounded-[999px] px-6 pb-4">
                 <span className="truncate text-lg font-semibold text-foreground">
                   {categoryEmoji(c.name)} {c.name}
                 </span>
-                <span className="text-sm text-foreground/80">
+                <span className="text-sm text-foreground/90">
                   {c.count} {c.count === 1 ? "piatto" : "piatti"}
                 </span>
               </span>
