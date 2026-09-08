@@ -140,57 +140,35 @@ function Index() {
         </div>
       </section>
 
-      {/* Chi Siamo — storytelling esteso */}
+      {/* Chi Siamo — accenno breve, il racconto completo è in /chi-siamo */}
       <section
         id="chi-siamo"
-        className="mx-auto max-w-4xl scroll-mt-32 px-4 py-20 sm:px-6"
+        className="mx-auto max-w-6xl scroll-mt-32 px-4 py-20 sm:px-6"
       >
         <div className="glass rounded-4xl p-8 sm:p-12">
           <h2 className="text-3xl font-bold leading-snug tracking-tight md:text-4xl">
-            Due Fratelli, Un SushiMan, Un'Atmosfera Unica
+            Due fratelli, un sushiman, un'atmosfera unica
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-            Il Sottoscala nasce dall'idea di due fratelli cresciuti a Mottola,
-            tra le vie strette del centro storico e le sere d'estate passate
-            sulle scalinate a chiacchierare fino a tardi. Volevano un posto che
-            somigliasse a quelle sere: piccolo, accogliente, dove ci si siede
-            per un calice e si resta per ore senza accorgersene.
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            Un locale nascosto sotto una rampa di scale nel centro di Mottola:
+            luci basse, pietra a vista e, pochi gradini più su, una terrazza da
+            cui nelle sere limpide si vedono le luci del golfo. Qui la dispensa
+            pugliese incontra la tecnica del nostro Sushiman.
           </p>
-          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            Hanno scelto un locale nascosto sotto una rampa di scale — da lì il
-            nome — e lo hanno rimesso a nuovo con le proprie mani: legno
-            recuperato, pietra a vista, luci basse e calde, una selezione
-            musicale retrò che accompagna la serata senza mai coprire le voci.
-            Chi entra la prima volta, di solito, torna.
-          </p>
-          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            Pochi gradini più su c'è la terrazza: nelle sere limpide lo sguardo
-            corre giù fino al golfo e alle luci della costa. È il posto dove i
-            nostri ospiti si fermano più a lungo, con un signature cocktail in
-            mano e il profumo di agrumi e menta fresca nell'aria.
-          </p>
-          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            La proposta è cresciuta un passo alla volta. All'inizio erano
-            taglieri, pinse e una piccola carta di vini pugliesi scelti uno per
-            uno dai produttori della zona. Poi è arrivato il bancone, con una
-            mixology che gioca su fichi, mandorla, bergamotto e amari del Sud.
-            Infine il nostro Sushiman, che ha portato in cucina la tecnica dei
-            roll, dei bao e dei crudi.
-          </p>
-          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            Da quell'incontro nasce il nostro modo di cucinare: il Capocollo di
-            Martina Franca, la stracciatella Gioiella e l'olio della Masseria
-            Amodio incontrano riso, alghe e salse orientali. Due tradizioni
-            lontane che, nello stesso piatto, si rispettano — e che ogni
-            stagione ci portano a rimettere mano al menù, con nuove pinse, nuovi
-            crudi e nuovi cocktail firmati.
-          </p>
-          <Link
-            to="/chi-siamo"
-            className="mt-8 inline-block rounded-full bg-primary px-7 py-3.5 text-lg font-semibold text-primary-foreground transition-transform hover:scale-[1.03] active:scale-95"
-          >
-            Leggi la nostra storia
-          </Link>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              to="/chi-siamo"
+              className="rounded-full bg-primary px-7 py-3.5 text-lg font-semibold text-primary-foreground transition-transform hover:scale-[1.03] active:scale-95"
+            >
+              Leggi la nostra storia
+            </Link>
+            <Link
+              to="/galleria"
+              className="glass-soft rounded-full px-7 py-3.5 text-lg font-semibold transition-transform hover:scale-[1.03] active:scale-95"
+            >
+              Guarda il locale
+            </Link>
+          </div>
         </div>
       </section>
 

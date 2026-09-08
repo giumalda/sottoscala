@@ -2,12 +2,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Sparkles, Utensils, Wine, Users } from "lucide-react";
 
 import { SiteLayout, DELIVEROO_URL } from "../components/SiteChrome";
+import heroImage from "../assets/hero-sottoscala.jpg";
 
 const IMG = "https://api.moremenu.it/v1/user-files";
 const COVER = `${IMG}/restaurant-cover-image-2e07ce36-d29e-49ef-924b-2a3884d5bf93-1715724443753.jpeg`;
 const SUSHI = `${IMG}/menu-category-cover-image-eb609020-f544-4e1a-a9ef-d9e88237dc45.jpeg`;
 const COCKTAIL = `${IMG}/menu-category-cover-image-1e75479d-3d30-421b-a09f-2ce7700557a2.jpeg`;
 const PINSA = `${IMG}/menu-category-cover-image-ea972651-0e5d-404d-aab9-2c215cc26f96.jpeg`;
+const FUSION = `${IMG}/menu-category-cover-image-1359bc0d-0dd2-4063-8fa5-50dd10e7b9b9.jpeg`;
 
 export const Route = createFileRoute("/chi-siamo")({
   head: () => ({
@@ -33,6 +35,50 @@ export const Route = createFileRoute("/chi-siamo")({
   component: ChiSiamoPage,
 });
 
+/** Blocchi narrativi alternati: testo discorsivo e foto reali. */
+const STORY = [
+  {
+    id: "origini",
+    title: "L'idea di due fratelli",
+    image: heroImage,
+    alt: "Il bancone del Sottoscala illuminato di sera",
+    paragraphs: [
+      "Il Sottoscala nasce dall'idea di due fratelli cresciuti a Mottola, tra le vie strette del centro storico e le sere d'estate passate sulle scalinate a chiacchierare fino a tardi. Volevano un posto che somigliasse a quelle sere: piccolo, accogliente, dove ci si siede per un calice e si resta per ore senza accorgersene.",
+      "Hanno scelto un locale nascosto sotto una vecchia rampa di scale — da lì il nome — e lo hanno rimesso a nuovo con le proprie mani: legno recuperato, pietra a vista, luci basse e calde, una selezione musicale retrò che accompagna la serata senza mai coprire le voci. Chi entra la prima volta, di solito, torna.",
+    ],
+  },
+  {
+    id: "terrazza",
+    title: "La terrazza sul golfo",
+    image: COCKTAIL,
+    alt: "Signature cocktail del Sottoscala",
+    paragraphs: [
+      "Pochi gradini più su si apre la terrazza. Nelle sere limpide lo sguardo corre giù fino al golfo e alle luci della costa che si muovono in lontananza: è il posto dove i nostri ospiti si fermano più a lungo, con un signature cocktail in mano e il profumo di agrumi e menta fresca nell'aria.",
+      "Il bancone è cresciuto insieme alla terrazza. La nostra mixology gioca su fichi, mandorla, bergamotto e amari del Sud, accanto a una cantina di etichette pugliesi scelte una a una direttamente dai produttori della zona.",
+    ],
+  },
+  {
+    id: "sushiman",
+    title: "L'arrivo del Sushiman",
+    image: SUSHI,
+    alt: "Roll e crudi preparati al banco del Sottoscala",
+    paragraphs: [
+      "La proposta è cresciuta un passo alla volta: all'inizio erano taglieri, pinse e una piccola carta di vini. Poi è arrivato il nostro Sushiman e ha cambiato tutto, portando in cucina la disciplina dei roll, dei bao e dei crudi: riso lavorato ogni giorno, pesce selezionato, cotture rapidissime.",
+      "La sua tecnica ha incontrato la nostra dispensa: il Capocollo di Martina Franca, la stracciatella Gioiella, l'olio della Masseria Amodio. Da quell'incontro sono nati i piatti che oggi raccontano il Sottoscala.",
+    ],
+  },
+  {
+    id: "fusione",
+    title: "Puglia e Asia nello stesso piatto",
+    image: PINSA,
+    alt: "Pinsa gourmet del Sottoscala",
+    paragraphs: [
+      "Non cerchiamo l'effetto sorpresa: cerchiamo l'equilibrio. Riso, alghe e salse orientali convivono con pomodorini, latticini e olio del nostro entroterra, perché due tradizioni lontane, quando si rispettano, si somigliano più di quanto sembri.",
+      "Ogni stagione rimettiamo mano al menù, con nuove pinse, nuovi crudi e nuovi cocktail firmati. Cambia la carta, non il modo di stare a tavola: lento, conviviale, senza fretta di alzarsi.",
+    ],
+  },
+];
+
 function ChiSiamoPage() {
   return (
     <SiteLayout>
@@ -47,38 +93,39 @@ function ChiSiamoPage() {
           un angolo di Mottola.
         </h1>
 
-        <div className="mt-10 grid gap-8 md:grid-cols-2 md:items-center">
-          <div className="glass rounded-4xl p-8 sm:p-10">
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              Il Sottoscala nasce sotto una vecchia rampa di scale del centro
-              storico, da un'idea semplice di due fratelli: creare un posto
-              piccolo, caldo e ovattato, dove sentirsi a casa anche la prima
-              volta. Poche luci, musica retrò, legno e pietra: uno spazio intimo
-              in cui il tempo rallenta.
-            </p>
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              Poi è arrivata la terrazza. Salendo pochi gradini si apre la vista
-              sul golfo: nelle sere limpide si vedono le luci della costa
-              muoversi in lontananza, ed è lì che i nostri ospiti finiscono per
-              restare fino a tardi, con un cocktail in mano.
-            </p>
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              L'ingresso del nostro Sushiman ha cambiato tutto. La sua tecnica ha
-              incontrato la nostra dispensa pugliese — il Capocollo di Martina
-              Franca, la stracciatella Gioiella, l'olio della Masseria Amodio — e
-              da quell'incontro sono nati i roll, i bao e le pinse che oggi
-              raccontano il Sottoscala: due tradizioni che si rispettano invece
-              di sovrapporsi.
-            </p>
-          </div>
-          <img
-            src={COVER}
-            alt="La sala del Sottoscala a Mottola"
-            className="h-full w-full rounded-4xl object-cover"
-            loading="lazy"
-            width={1920}
-            height={711}
-          />
+        <div className="mt-14 flex flex-col gap-16">
+          {STORY.map((block, i) => (
+            <section
+              key={block.id}
+              className="grid items-center gap-8 md:grid-cols-2"
+            >
+              <div
+                className={`glass rounded-4xl p-8 sm:p-10 ${
+                  i % 2 === 1 ? "md:order-2" : ""
+                }`}
+              >
+                <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
+                  {block.title}
+                </h2>
+                {block.paragraphs.map((p) => (
+                  <p
+                    key={p.slice(0, 24)}
+                    className="mt-5 text-lg leading-relaxed text-muted-foreground"
+                  >
+                    {p}
+                  </p>
+                ))}
+              </div>
+              <img
+                src={block.image}
+                alt={block.alt}
+                className="h-72 w-full rounded-4xl object-cover md:h-full md:max-h-[26rem]"
+                loading="lazy"
+                width={1200}
+                height={800}
+              />
+            </section>
+          ))}
         </div>
 
         <h2 className="mt-24 text-3xl font-bold tracking-tight md:text-4xl">
@@ -90,7 +137,7 @@ function ChiSiamoPage() {
               icon: Utensils,
               title: "Materia prima locale",
               text: "Capocollo di Martina Franca, stracciatella Gioiella, olio Masseria Amodio: la Puglia è la base di ogni piatto, anche quando il piatto arriva da lontano.",
-              image: PINSA,
+              image: FUSION,
             },
             {
               icon: Sparkles,
