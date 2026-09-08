@@ -57,19 +57,28 @@ function formatPrice(price?: number) {
 export function MenuItemCard({ item }: { item: MenuItem }) {
   const [arOpen, setArOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
-  const desc = stripHtml(item.description);
+  const desc = shorten(stripHtml(item.description));
   const ar = item.mediaArThreeModel;
+  const hasAr = Boolean(ar?.arThreeModelAndroidUrl);
 
   return (
-    <li className="glass-soft flex flex-col rounded-3xl p-4 transition-colors hover:bg-foreground/10">
+    <li
+      className={`glass-soft flex flex-col rounded-3xl p-4 ${
+        hasAr
+          ? "border-primary/40 transition-colors hover:bg-foreground/10"
+          : ""
+      }`}
+    >
       <div className="flex gap-4">
         {item.coverImageUrl && (
-          <img
-            src={item.coverImageUrl}
-            alt={item.name}
-            loading="lazy"
-            className="h-24 w-24 shrink-0 rounded-2xl object-cover sm:h-28 sm:w-28"
-          />
+          <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl bg-[oklch(0.24_0.05_165)] sm:h-28 sm:w-28">
+            <img
+              src={item.coverImageUrl}
+              alt={item.name}
+              loading="lazy"
+              className="dish-photo h-full w-full object-cover"
+            />
+          </div>
         )}
 
         <div className="min-w-0 flex-1">
@@ -83,12 +92,19 @@ export function MenuItemCard({ item }: { item: MenuItem }) {
           </div>
 
           {desc && (
-            <p className="mt-1 text-base leading-relaxed text-muted-foreground">
+            <p className="mt-1 line-clamp-3 text-base leading-relaxed text-muted-foreground">
               {desc}
             </p>
           )}
 
           <div className="mt-3 flex flex-wrap items-center gap-2">
+            {hasAr && (
+              <span className="flex items-center gap-1.5 rounded-full bg-accent/20 px-3 py-1 text-sm font-semibold text-accent">
+                <Box size={14} aria-hidden />
+                3D disponibile
+              </span>
+            )}
+
             {(item.allergens ?? []).map((a) => (
               <span
                 key={a}
