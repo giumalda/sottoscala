@@ -32,7 +32,7 @@ export function CategorySlider({ categories }: { categories: Cat[] }) {
 
       <ul
         ref={trackRef}
-        className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-1 pb-3"
+        className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-3"
       >
         {categories.map((c) => (
           <li key={c.id} className="snap-start">

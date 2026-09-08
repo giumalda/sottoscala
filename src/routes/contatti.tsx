@@ -68,9 +68,11 @@ function ContattiPage() {
             <div className="mt-6 flex flex-col gap-3">
               <a
                 href={PHONE_TEL}
-                className="flex items-center gap-2 text-lg font-semibold hover:underline"
+                className="flex items-center gap-3 text-lg font-semibold hover:underline"
               >
-                <Phone size={18} className="text-primary" aria-hidden />
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[oklch(0.78_0.21_142)] text-[oklch(0.16_0.05_160)] shadow-[0_0_18px_-4px_oklch(0.78_0.21_142/0.8)]">
+                  <Phone size={18} aria-hidden />
+                </span>
                 {PHONE_DISPLAY}
               </a>
               <a
