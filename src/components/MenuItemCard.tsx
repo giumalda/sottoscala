@@ -35,6 +35,16 @@ function stripHtml(html?: string) {
     .trim();
 }
 
+/** Descrizioni omogenee: taglio pulito a fine parola. */
+const DESC_MAX = 110;
+
+function shorten(text: string) {
+  if (text.length <= DESC_MAX) return text;
+  const cut = text.slice(0, DESC_MAX);
+  const space = cut.lastIndexOf(" ");
+  return `${(space > 60 ? cut.slice(0, space) : cut).replace(/[,;.\s]+$/, "")}…`;
+}
+
 function formatPrice(price?: number) {
   if (price == null) return "";
   return new Intl.NumberFormat("it-IT", {
