@@ -76,7 +76,7 @@ export function MenuItemCard({ item }: { item: MenuItem }) {
               src={item.coverImageUrl}
               alt={item.name}
               loading="lazy"
-              className="dish-photo h-full w-full object-cover"
+              className="h-full w-full object-cover"
             />
           </div>
         )}
