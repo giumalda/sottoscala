@@ -40,7 +40,7 @@ const NAV = [
 export function Logo({ className = "h-9" }: { className?: string }) {
   return (
     <img
-      src={SOTTOSCALA.png}
+      src={"SOTTOSCALA.png"}
       alt="Sottoscala — logo"
       className={`w-auto ${className}`}
       width={565}
