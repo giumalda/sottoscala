@@ -24,7 +24,7 @@ export const PHONE_DISPLAY = "351 466 7813";
 export const PHONE_TEL = "tel:+393514667813";
 export const WHATSAPP_URL = "https://wa.me/393514667813";
 export const ORDER_URL = "https://app.moremenu.it/menu/sottoscala";
-export const DELIVEROO_URL = "https://deliveroo.it/it/search?q=Sottoscala%20Mottola";
+export const DELIVEROO_URL = "https://deliveroo.it/it/menu/bari/massafra/sottoscala-via-giovanni-amendola-1";
 export const INSTAGRAM_URL = "https://www.instagram.com/sottoscala___";
 export const FACEBOOK_URL = "https://www.facebook.com/people/Sottoscala/61554464331306/";
 
