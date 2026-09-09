@@ -182,8 +182,8 @@
 
 /* Foto piatto: lo sfondo bianco dello scatto si fonde col tema scuro */
 @utility dish-photo {
-  mix-blend-mode: multiply;
-  filter: brightness(1.55) saturate(1.12);
+  mix-blend-mode: normal;
+  filter: none;
 }
 
 
