@@ -12,26 +12,17 @@ export const Route = createFileRoute("/al-mare")({
 function AlMarePage() {
   return (
     <SiteLayout>
-      {/* Sfondo con la nuova immagine e velatura scura */}
-      <div className="fixed inset-0 -z-10 overflow-hidden">
-        <img
-          src="/bg-al-mare.jpg"
-          alt="Sottoscala al Mare sfondo"
-          className="h-full w-full object-cover object-center filter brightness-90"
-        />
-        <div className="absolute inset-0 bg-slate-950/75 backdrop-blur-[2px]" />
-      </div>
+      {/* Sfondo identico alla Home */}
+      <div className="fixed inset-0 -z-10 bg-[url('/bg-al-mare.jpg')] bg-cover bg-center" />
+      <div className="fixed inset-0 -z-10 bg-slate-950/75 backdrop-blur-[2px]" />
 
       <main className="mx-auto max-w-[1100px] px-4 pb-24 pt-28 sm:px-6 sm:pt-32 text-white">
         
         <div className="flex flex-col items-center text-center">
-          {/* Logo della location al mare */}
-          <img 
-            src="/logo-al-mare.png" 
-            alt="Logo Sottoscala al Mare" 
-            className="h-28 w-auto mb-6 object-contain drop-shadow-lg"
-          />
-          <p className="text-lg text-slate-200 max-w-2xl drop-shadow">
+          <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl text-blue-400">
+            Sottoscala al Mare
+          </h1>
+          <p className="mt-4 text-lg text-slate-200 max-w-2xl">
             La nostra location estiva a Castellaneta Marina. Eleganza, cocktail ricercati 
             e ottima cucina a due passi dalla spiaggia.
           </p>
@@ -81,7 +72,7 @@ function AlMarePage() {
           </div>
         </div>
 
-        {/* Mappa Incorporata Castellaneta Marina */}
+        {/* Mappa Incorporata */}
         <div className="glass mt-8 overflow-hidden rounded-4xl p-4 sm:p-6 w-full border-blue-500/20 bg-slate-900/60">
           <div className="w-full h-96 rounded-3xl overflow-hidden shadow-inner">
             <iframe
