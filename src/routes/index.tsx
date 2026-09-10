@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Star, Sparkles, MapPin } from "lucide-react";
+import { Star, Sparkles, MapPin, Utensils } from "lucide-react";
+import { useState, useEffect } from "react";
 
 import {
   SiteLayout,
@@ -9,6 +10,7 @@ import {
 } from "../components/SiteChrome";
 import { WhatsAppIcon } from "../components/WhatsAppIcon";
 import heroImage from "../assets/hero-sottoscala.jpg";
+import logoImage from "../assets/logo-sottoscala.png.asset.json";
 
 const IMG = "https://api.moremenu.it/v1/user-files";
 const COVER = `${IMG}/restaurant-cover-image-2e07ce36-d29e-49ef-924b-2a3884d5bf93-1715724443753.jpeg`;
@@ -41,6 +43,25 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const [showCookieBanner, setShowCookieBanner] = useState(false);
+
+  useEffect(() => {
+    const consent = localStorage.getItem("cookie-consent");
+    if (!consent) {
+      setShowCookieBanner(true);
+    }
+  }, []);
+
+  const handleAcceptCookies = () => {
+    localStorage.setItem("cookie-consent", "accepted");
+    setShowCookieBanner(false);
+  };
+
+  const handleRejectCookies = () => {
+    localStorage.setItem("cookie-consent", "rejected");
+    setShowCookieBanner(false);
+  };
+
   const categories = [
     {
       title: "Sushi & Crudi",
@@ -91,7 +112,7 @@ function Index() {
   return (
     <SiteLayout>
       {/* Hero */}
-      <section className="relative flex min-h-[68vh] items-end overflow-hidden px-4 pb-8 pt-24 sm:min-h-[72vh] sm:pb-10">
+      <section className="relative flex min-h-[75vh] items-center justify-center overflow-hidden px-4 pb-12 pt-32 text-center sm:min-h-[85vh]">
         <img
           src={heroImage}
           alt="Il bancone cocktail del Sottoscala illuminato di sera"
@@ -99,25 +120,45 @@ function Index() {
           width={1920}
           height={1280}
         />
-        <div className="blur-veil-top pointer-events-none absolute inset-x-0 top-0 h-24" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/30 via-background/10 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
 
-        <div className="relative mx-auto w-full max-w-6xl">
-          <div className="glass max-w-2xl rounded-4xl px-5 py-6 sm:px-8 sm:py-8">
-            <p className="flex items-center gap-2 text-sm font-medium text-accent sm:text-base">
+        <div className="relative mx-auto w-full max-w-6xl flex flex-col items-center">
+          <div className="glass w-full rounded-4xl px-6 py-10 sm:px-12 sm:py-14 flex flex-col items-center">
+            
+            {/* Logo uguali a quello in alto a sinistra ma centrato e grande */}
+            <div className="mb-6 flex items-center justify-center">
+              <span className="text-3xl sm:text-5xl font-extrabold tracking-wider text-primary uppercase">
+                Sottoscala
+              </span>
+            </div>
+
+            <p className="flex items-center gap-2 text-sm font-medium text-accent sm:text-base mb-3">
               <Sparkles size={15} aria-hidden />
               Bistrò · Cocktail Bar · Sushi &amp; Pinsa — Mottola
             </p>
-            <h1 className="mt-2 text-3xl font-extrabold leading-[1.02] tracking-tight sm:text-5xl md:text-6xl">
-              Tradizione Pugliese.
-              <br />
-              Anima Asiatica.
+
+            <h1 className="text-3xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">
+              Tradizione Pugliese. Anima Asiatica.
             </h1>
-            <p className="mt-3 max-w-lg text-base leading-snug text-muted-foreground sm:text-lg">
+
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               Un'esperienza culinaria avvolgente nel centro di Mottola, tra
-              sushi fresco, pinse gourmet e signature cocktail.
+              sushi fresco, pinse gourmet e signature cocktail in un'antica struttura in pietra.
             </p>
-            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+
+            {/* Pulsante Menu prima di Chiama/Ordina */}
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 w-full justify-center">
+              <Link
+                to="/menu"
+                className="flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-[1.03] active:scale-95"
+              >
+                <Utensils size={20} aria-hidden />
+                Sfoglia il Menù
+              </Link>
+            </div>
+
+            {/* Pulsanti Chiama / Ordina */}
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row justify-center w-full">
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
@@ -136,11 +177,12 @@ function Index() {
                 Ordina con Deliveroo
               </a>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* Chi Siamo — accenno breve, il racconto completo è in /chi-siamo */}
+      {/* Chi Siamo */}
       <section
         id="chi-siamo"
         className="mx-auto max-w-6xl scroll-mt-32 px-4 py-20 sm:px-6"
@@ -274,6 +316,32 @@ function Index() {
           nostra Privacy Policy e al GDPR.
         </p>
       </section>
+
+      {/* Cookie Banner Funzionante */}
+      {showCookieBanner && (
+        <aside aria-label="Informativa sui cookie" className="fixed bottom-0 inset-x-0 z-50 p-4 sm:p-6">
+          <div className="mx-auto max-w-6xl glass rounded-3xl p-6 shadow-2xl border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-muted-foreground text-center sm:text-left">
+              Questo sito utilizza i cookie per migliorare l'esperienza di navigazione. 
+              Puoi accettare o rifiutare l'utilizzo dei cookie.
+            </p>
+            <div className="flex items-center gap-3 shrink-0">
+              <button
+                onClick={handleRejectCookies}
+                className="rounded-full px-5 py-2.5 text-sm font-semibold glass-soft transition-transform active:scale-95"
+              >
+                Rifiuta
+              </button>
+              <button
+                onClick={handleAcceptCookies}
+                className="rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground transition-transform active:scale-95"
+              >
+                Accetta
+              </button>
+            </div>
+          </div>
+        </aside>
+      )}
     </SiteLayout>
   );
 }
