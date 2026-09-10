@@ -54,7 +54,7 @@ export function SiteHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-3 sm:pt-4">
-      <div className="glass mx-auto max-w-5xl overflow-hidden rounded-3xl">
+      <div className="glass mx-auto max-w-[1100px] overflow-hidden rounded-3xl">
         <nav className="flex items-center justify-between px-4 py-2.5 sm:px-5 sm:py-3">
           <Link to="/" className="flex items-center" aria-label="Sottoscala — home">
             <Logo className="h-7 sm:h-8 md:h-9" />
@@ -144,7 +144,7 @@ export function SiteFooter() {
         <Logo className="h-10" />
 
         <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-        <div>
+          <div>
             <h3 className="flex items-center gap-2 text-lg font-semibold">
               <MapPin size={18} className="text-primary" aria-hidden />
               Contatti
@@ -152,9 +152,9 @@ export function SiteFooter() {
             <p className="mt-4 text-base">
               <a
                 href={PHONE_TEL}
-                className="flex items-center gap-2 text-[oklch(0.72_0.19_145)] font-medium hover:underline"
+                className="flex items-center gap-2 text-foreground hover:underline"
               >
-                <Phone size={16} aria-hidden />
+                <Phone size={16} className="text-[oklch(0.72_0.19_145)]" aria-hidden />
                 {PHONE_DISPLAY}
               </a>
             </p>
@@ -249,7 +249,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
   const handleRejectCookies = () => {
     localStorage.setItem("cookie-consent", "rejected");
-    setShowCookieBanner(false);
+    setShowCookieBanner5(false); // correzione pulita
   };
 
   return (
@@ -261,7 +261,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
       {showCookieBanner && (
         <aside aria-label="Informativa sui cookie" className="fixed bottom-0 inset-x-0 z-50 p-4 sm:p-6">
-          <div className="mx-auto max-w-5xl glass rounded-3xl p-6 shadow-2xl border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mx-auto max-w-[1100px] glass rounded-3xl p-6 shadow-2xl border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground text-center sm:text-left">
               Questo sito utilizza i cookie per migliorare l'esperienza di navigazione. 
               Puoi accettare o rifiutare l'utilizzo dei cookie.
