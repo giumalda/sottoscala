@@ -275,6 +275,41 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   const isAlMare = routerState.location.pathname === "/al-mare";
   const [showCookieBanner, setShowCookieBanner] = useState(false);
 
+  // Inserisce automaticamente i meta tag per la PWA e iOS
+  useEffect(() => {
+    const metaTags = [
+      { name: "apple-mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
+      { name: "apple-mobile-web-app-title", content: "Sottoscala" },
+    ];
+
+    metaTags.forEach((tag) => {
+      let element = document.querySelector(`meta[name="${tag.name}"]`);
+      if (!element) {
+        element = document.createElement("meta");
+        element.setAttribute("name", tag.name);
+        element.setAttribute("content", tag.content);
+        document.head.appendChild(element);
+      }
+    });
+
+    let linkManifest = document.querySelector('link[rel="manifest"]');
+    if (!linkManifest) {
+      linkManifest = document.createElement("link");
+      linkManifest.setAttribute("rel", "manifest");
+      linkManifest.setAttribute("href", "/manifest.json");
+      document.head.appendChild(linkManifest);
+    }
+
+    let linkAppleIcon = document.querySelector('link[rel="apple-touch-icon"]');
+    if (!linkAppleIcon) {
+      linkAppleIcon = document.createElement("link");
+      linkAppleIcon.setAttribute("rel", "apple-touch-icon");
+      linkAppleIcon.setAttribute("href", "/apple-touch-icon.png");
+      document.head.appendChild(linkAppleIcon);
+    }
+  }, []);
+
   useEffect(() => {
     const consent = localStorage.getItem("cookie-consent");
     if (!consent) {
