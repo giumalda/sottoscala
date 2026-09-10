@@ -144,7 +144,7 @@ export function SiteFooter() {
         <Logo className="h-10" />
 
         <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
+        <div>
             <h3 className="flex items-center gap-2 text-lg font-semibold">
               <MapPin size={18} className="text-primary" aria-hidden />
               Contatti
@@ -152,7 +152,7 @@ export function SiteFooter() {
             <p className="mt-4 text-base">
               <a
                 href={PHONE_TEL}
-                className="flex items-center gap-2 text-foreground hover:underline"
+                className="flex items-center gap-2 text-[oklch(0.72_0.19_145)] font-medium hover:underline"
               >
                 <Phone size={16} aria-hidden />
                 {PHONE_DISPLAY}
