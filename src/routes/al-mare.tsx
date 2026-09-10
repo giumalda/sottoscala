@@ -12,7 +12,7 @@ export const Route = createFileRoute("/al-mare")({
 function AlMarePage() {
   return (
     <SiteLayout>
-      {/* Sfondo con immagine fissa e velatura scura */}
+      {/* Sfondo con la nuova immagine e velatura scura */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <img
           src="/bg-al-mare.jpg"
@@ -25,10 +25,13 @@ function AlMarePage() {
       <main className="mx-auto max-w-[1100px] px-4 pb-24 pt-28 sm:px-6 sm:pt-32 text-white">
         
         <div className="flex flex-col items-center text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl text-blue-400 drop-shadow-md">
-            Sottoscala al Mare
-          </h1>
-          <p className="mt-4 text-lg text-slate-200 max-w-2xl drop-shadow">
+          {/* Logo della location al mare */}
+          <img 
+            src="/logo-al-mare.png" 
+            alt="Logo Sottoscala al Mare" 
+            className="h-28 w-auto mb-6 object-contain drop-shadow-lg"
+          />
+          <p className="text-lg text-slate-200 max-w-2xl drop-shadow">
             La nostra location estiva a Castellaneta Marina. Eleganza, cocktail ricercati 
             e ottima cucina a due passi dalla spiaggia.
           </p>
