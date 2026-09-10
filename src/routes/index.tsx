@@ -101,7 +101,7 @@ function Index() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
 
-        <div className="relative mx-auto w-full max-w-6xl flex flex-col items-center">
+        <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 flex flex-col items-center">
           <div className="glass w-full rounded-4xl px-6 py-10 sm:px-12 sm:py-14 flex flex-col items-center">
             
             {/* Logo ufficiale grande e centrato */}
