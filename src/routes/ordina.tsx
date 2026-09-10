@@ -27,20 +27,20 @@ function OrdinaPage() {
           Delivery & Asporto
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-16">
-          Gusta i piatti del Sottoscala comodamente a casa tua. Scegli il nostro servizio di asporto dal locale o affidati alla consegna di Deliveroo.
+          Gusta i piatti del Sottoscala comodamente a casa tua. Scegli il nostro servizio di consegna diretto su ampio raggio, ritira in sede, oppure affidati a Deliveroo.
         </p>
         
         <div className="grid gap-8 sm:grid-cols-2">
           
-          {/* Opzione 1: Asporto Diretto (Takeaway) */}
+          {/* Opzione 1: Foodbooking (Asporto & Domicilio Diretto) */}
           <div className="glass rounded-4xl p-8 sm:p-10 flex flex-col justify-between border-white/10 shadow-xl text-left hover:scale-[1.02] transition-transform duration-300">
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <ShoppingBag className="text-[oklch(0.85_0.09_205)]" size={28} />
-                <h2 className="text-2xl font-bold">Asporto (Takeaway)</h2>
+                <h2 className="text-2xl font-bold">Asporto & Domicilio Diretto</h2>
               </div>
               <p className="text-muted-foreground mb-8 leading-relaxed">
-                Ordina online dal nostro menù e passa a ritirare i tuoi piatti caldi e pronti direttamente nel nostro locale a Mottola.
+                Ordina dal nostro menù per passare a ritirare in locale, oppure scegli la nostra consegna a domicilio diretta che copre un ampio raggio intorno a Mottola e zone limitrofe.
               </p>
             </div>
             <a
@@ -49,20 +49,20 @@ function OrdinaPage() {
               rel="noopener noreferrer"
               className="group flex items-center justify-center gap-2 rounded-full bg-[oklch(0.85_0.09_205)] px-6 py-4 text-base font-bold text-[oklch(0.24_0.06_205)] shadow-[0_0_20px_rgba(103,232,249,0.3)] transition-all hover:brightness-110 active:scale-95"
             >
-              Ordina da asporto
+              Ordina direttamente
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
             </a>
           </div>
 
-          {/* Opzione 2: Deliveroo */}
+          {/* Opzione 2: Deliveroo (Massafra) */}
           <div className="glass rounded-4xl p-8 sm:p-10 flex flex-col justify-between border-white/10 shadow-xl text-left hover:scale-[1.02] transition-transform duration-300">
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <Bike className="text-[#00CCBC]" size={28} />
-                <h2 className="text-2xl font-bold">Consegna a Domicilio</h2>
+                <h2 className="text-2xl font-bold">Deliveroo Massafra</h2>
               </div>
               <p className="text-muted-foreground mb-8 leading-relaxed">
-                Vuoi la comodità della consegna? Trovaci sull'app Deliveroo, effettuiamo consegne dirette a domicilio anche su Massafra e zone limitrofe.
+                Ti trovi a Massafra o nei primissimi dintorni? Trovaci sull'app Deliveroo per un servizio di consegna rapido e tracciato direttamente dal tuo smartphone.
               </p>
             </div>
             <a
