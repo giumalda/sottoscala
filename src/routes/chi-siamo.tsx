@@ -14,17 +14,17 @@ const FUSION = `${IMG}/menu-category-cover-image-1359bc0d-0dd2-4063-8fa5-50dd10e
 export const Route = createFileRoute("/chi-siamo")({
   head: () => ({
     meta: [
-      { title: "Chi Siamo — La storia del Sottoscala a Mottola" },
+      { title: "Chi Siamo — La vera storia del Sottoscala a Mottola" },
       {
         name: "description",
         content:
-          "Due fratelli, un sushiman e una terrazza con vista sul golfo: la storia del Sottoscala, tra Capocollo di Martina Franca, stracciatella Gioiella e l'arte dei roll.",
+          "Dalle antiche cave in pietra di Mottola fino a Castellaneta Marina. La famiglia Notaristefano racconta l'incontro tra tradizioni pugliesi e cucina asiatica.",
       },
       { property: "og:title", content: "Chi Siamo — SOTTOSCALA Mottola" },
       {
         property: "og:description",
         content:
-          "La storia, la filosofia di cucina e le persone dietro al Sottoscala di Mottola.",
+          "La storia, la filosofia di cucina e l'evoluzione del Sottoscala di Mottola.",
       },
       { property: "og:type", content: "website" },
       { property: "og:image", content: COVER },
@@ -39,42 +39,42 @@ export const Route = createFileRoute("/chi-siamo")({
 const STORY = [
   {
     id: "origini",
-    title: "L'idea di due fratelli",
+    title: "Le radici in pietra",
     image: heroImage,
     alt: "Il bancone del Sottoscala illuminato di sera",
     paragraphs: [
-      "Il Sottoscala nasce dall'idea di due fratelli cresciuti a Mottola, tra le vie strette del centro storico e le sere d'estate passate sulle scalinate a chiacchierare fino a tardi. Volevano un posto che somigliasse a quelle sere: piccolo, accogliente, dove ci si siede per un calice e si resta per ore senza accorgersene.",
-      "Hanno scelto un locale nascosto sotto una vecchia rampa di scale — da lì il nome — e lo hanno rimesso a nuovo con le proprie mani: legno recuperato, pietra a vista, luci basse e calde, una selezione musicale retrò che accompagna la serata senza mai coprire le voci. Chi entra la prima volta, di solito, torna.",
+      "Il Sottoscala si trova a Mottola, in via Giovanni Amendola. Il suo nome deriva dalla particolare conformazione del locale, che si apre proprio ai piedi di una scalinata.",
+      "Gli interni presentano un'affascinante struttura in pietra, tipica dei paesi della Murgia. L'aspetto richiama in modo diretto le antiche cave rupestri, creando un ambiente intimo e accogliente.",
     ],
   },
   {
-    id: "terrazza",
-    title: "La terrazza sul golfo",
-    image: COCKTAIL,
-    alt: "Signature cocktail del Sottoscala",
-    paragraphs: [
-      "Pochi gradini più su si apre la terrazza. Nelle sere limpide lo sguardo corre giù fino al golfo e alle luci della costa che si muovono in lontananza: è il posto dove i nostri ospiti si fermano più a lungo, con un signature cocktail in mano e il profumo di agrumi e menta fresca nell'aria.",
-      "Il bancone è cresciuto insieme alla terrazza. La nostra mixology gioca su fichi, mandorla, bergamotto e amari del Sud, accanto a una cantina di etichette pugliesi scelte una a una direttamente dai produttori della zona.",
-    ],
-  },
-  {
-    id: "sushiman",
-    title: "L'arrivo del Sushiman",
-    image: SUSHI,
-    alt: "Roll e crudi preparati al banco del Sottoscala",
-    paragraphs: [
-      "La proposta è cresciuta un passo alla volta: all'inizio erano taglieri, pinse e una piccola carta di vini. Poi è arrivato il nostro Sushiman e ha cambiato tutto, portando in cucina la disciplina dei roll, dei bao e dei crudi: riso lavorato ogni giorno, pesce selezionato, cotture rapidissime.",
-      "La sua tecnica ha incontrato la nostra dispensa: il Capocollo di Martina Franca, la stracciatella Gioiella, l'olio della Masseria Amodio. Da quell'incontro sono nati i piatti che oggi raccontano il Sottoscala.",
-    ],
-  },
-  {
-    id: "fusione",
-    title: "Puglia e Asia nello stesso piatto",
+    id: "rinascita",
+    title: "Una nuova vita",
     image: PINSA,
     alt: "Pinsa gourmet del Sottoscala",
     paragraphs: [
-      "Non cerchiamo l'effetto sorpresa: cerchiamo l'equilibrio. Riso, alghe e salse orientali convivono con pomodorini, latticini e olio del nostro entroterra, perché due tradizioni lontane, quando si rispettano, si somigliano più di quanto sembri.",
-      "Ogni stagione rimettiamo mano al menù, con nuove pinse, nuovi crudi e nuovi cocktail firmati. Cambia la carta, non il modo di stare a tavola: lento, conviviale, senza fretta di alzarsi.",
+      "Nel 2023, la famiglia Notaristefano ha deciso di investire su questo spazio per ridargli vita. Il locale era infatti chiuso da qualche anno, dopo aver ospitato una gelateria come sua ultima attività.",
+      "L'obiettivo era chiaro fin da subito: recuperare l'anima storica della struttura e trasformarla in un punto di ritrovo moderno, dove il cibo e la convivialità fossero al centro di tutto.",
+    ],
+  },
+  {
+    id: "fusion",
+    title: "L'incontro dei sapori",
+    image: SUSHI,
+    alt: "Roll e crudi preparati al banco del Sottoscala",
+    paragraphs: [
+      "L'idea alla base del progetto è una forte contaminazione tra la cucina italiana d'eccellenza e lo street food asiatico di qualità. Al Sottoscala, il sushi dialoga con i sapori mediterranei e le tradizioni pugliesi.",
+      "Il menù unisce piatti tipici, come pinse e salumi locali, con preparazioni fusion come poke, bao e uramaki. L'atmosfera rilassata è accompagnata da birre artigianali, cocktail originali e serate con musica dal vivo.",
+    ],
+  },
+  {
+    id: "mare",
+    title: "L'espansione verso il mare",
+    image: COCKTAIL,
+    alt: "Signature cocktail in terrazza o al mare",
+    paragraphs: [
+      "Seguendo il successo ottenuto sulla collina, il percorso del ristorante si è allargato verso la costa, dando vita al Sottoscala al Mare.",
+      "Questa succursale estiva è ospitata nel Kalè Beach Club di Castellaneta Marina. In questa nuova location l'offerta si concentra sul pescato fresco del Mediterraneo, mantenendo però intatta la solita anima fusion che caratterizza il marchio.",
     ],
   },
 ];
@@ -88,9 +88,9 @@ function ChiSiamoPage() {
           La nostra storia
         </p>
         <h1 className="mt-3 text-4xl font-extrabold leading-[1.08] tracking-tight md:text-6xl">
-          Due fratelli, un sushiman,
+          Un'antica cava in pietra,
           <br />
-          un angolo di Mottola.
+          l'incontro tra Puglia e Asia.
         </h1>
 
         <div className="mt-14 flex flex-col gap-16">
@@ -136,19 +136,19 @@ function ChiSiamoPage() {
             {
               icon: Utensils,
               title: "Materia prima locale",
-              text: "Capocollo di Martina Franca, stracciatella Gioiella, olio Masseria Amodio: la Puglia è la base di ogni piatto, anche quando il piatto arriva da lontano.",
+              text: "Salumi del territorio e ingredienti a chilometro zero: la Puglia è la base di ogni piatto, anche quando la ricetta arriva da lontano.",
               image: FUSION,
             },
             {
               icon: Sparkles,
               title: "Tecnica asiatica",
-              text: "Riso lavorato ogni giorno, pesce selezionato, cotture rapide: roll, bao, tacos e poke curati con la disciplina della cucina giapponese.",
+              text: "Riso lavorato ogni giorno, pescato fresco, cotture rapide: roll, bao, tacos e poke curati con la disciplina della cucina asiatica.",
               image: SUSHI,
             },
             {
               icon: Wine,
               title: "Bere bene",
-              text: "Signature cocktail costruiti sugli stessi sapori del menù, più una cantina con etichette pugliesi e nazionali scelte una a una.",
+              text: "Signature cocktail originali per esaltare i sapori del menù, uniti a una selezione mirata di birre artigianali ed etichette del territorio.",
               image: COCKTAIL,
             },
           ].map((c) => (
@@ -178,16 +178,16 @@ function ChiSiamoPage() {
         <div className="mt-8 grid gap-6 sm:grid-cols-3">
           {[
             {
-              role: "I fratelli fondatori",
-              text: "In sala ogni sera: accolgono, consigliano e tengono il ritmo del locale.",
+              role: "La famiglia Notaristefano",
+              text: "La guida e l'anima del progetto. Dal 2023 curano ogni dettaglio per garantire un'atmosfera calda e familiare.",
             },
             {
               role: "Il Sushiman",
-              text: "Al banco crudi: taglia, compone e firma i roll che hanno reso riconoscibile il Sottoscala.",
+              text: "Al banco crudi: taglia, compone e firma i roll e i piatti fusion che hanno reso riconoscibile il marchio Sottoscala.",
             },
             {
               role: "Il team bar e cucina",
-              text: "Mixology, forno e pass: una squadra piccola che lavora spalla a spalla.",
+              text: "Mixology, pinseria e cucina: una squadra compatta che lavora con precisione per unire sapori distanti.",
             },
           ].map((p) => (
             <div key={p.role} className="glass rounded-4xl p-7">
