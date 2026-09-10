@@ -25,7 +25,6 @@ function AlMarePage() {
       <main className="mx-auto max-w-[1100px] px-4 pb-24 pt-28 sm:px-6 sm:pt-32 text-white">
         
         <div className="flex flex-col items-center text-center">
-          {/* Logo della location al mare */}
           <img 
             src="/logo-al-mare.png" 
             alt="Logo Sottoscala al Mare" 
@@ -37,27 +36,27 @@ function AlMarePage() {
           </p>
         </div>
 
-        {/* Sezione Galleria Fotografica del Locale */}
+        {/* Galleria del Locale */}
         <div className="mt-12">
           <h2 className="text-2xl font-bold flex items-center gap-2 mb-6 text-white px-2">
             <ImageIcon className="text-blue-400" /> Galleria del Locale
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-  <div className="glass rounded-3xl overflow-hidden border-blue-500/20 bg-slate-900/50 aspect-video group">
-    <img 
-      src="/bg-al-mare.jpg" 
-      alt="Sottoscala al Mare atmosfera" 
-      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-    />
-  </div>
-  <div className="glass rounded-3xl overflow-hidden border-blue-500/20 bg-slate-900/50 aspect-video group">
-    <img 
-      src="/tua-altra-foto.jpg" 
-      alt="Cocktail Sottoscala al Mare" 
-      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-    />
-  </div>
-</div>
+            <div className="glass rounded-3xl overflow-hidden border-blue-500/20 bg-slate-900/50 aspect-video group">
+              <img 
+                src="/bg-al-mare.jpg" 
+                alt="Atmosfera Sottoscala al Mare" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <div className="glass rounded-3xl overflow-hidden border-blue-500/20 bg-slate-900/50 aspect-video group flex items-center justify-center text-slate-400 text-sm">
+              <span className="p-4 text-center">Cocktail &amp; Sunset</span>
+            </div>
+            <div className="glass rounded-3xl overflow-hidden border-blue-500/20 bg-slate-900/50 aspect-video group flex items-center justify-center text-slate-400 text-sm">
+              <span className="p-4 text-center">La Terrazza sulla Spiaggia</span>
+            </div>
+          </div>
+        </div>
 
         <div className="mt-12 grid gap-8 md:grid-cols-2">
           {/* Box Posizione */}
@@ -103,7 +102,7 @@ function AlMarePage() {
           </div>
         </div>
 
-        {/* Mappa Incorporata Castellaneta Marina */}
+        {/* Mappa Incorporata */}
         <div className="glass mt-8 overflow-hidden rounded-4xl p-4 sm:p-6 w-full border-blue-500/20 bg-slate-900/60">
           <div className="w-full h-96 rounded-3xl overflow-hidden shadow-inner">
             <iframe
