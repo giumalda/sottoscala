@@ -53,10 +53,10 @@ const NAV = [
   { to: "/contatti", label: "Contatti" },
 ] as const;
 
-export function Logo({ className = "h-9", isBlue = false }: { className?: string; isBlue?: boolean }) {
+export function Logo({ className = "h-9" }: { className?: string }) {
   return (
     <img
-      src={isBlue ? "/logo-al-mare.png" : "/SOTTOSCALA.png"}
+      src="/SOTTOSCALA.png"
       alt="Sottoscala — logo"
       className={`w-auto object-contain ${className}`}
       width={565}
