@@ -145,14 +145,15 @@ function ContattiPage() {
                 </div>
               </div>
 
-              {/* Instagram in evidenza */}
+     {/* Social in evidenza */}
               <div className="mt-8 pt-6 border-t border-border/60">
                 <h3 className="font-semibold text-lg flex items-center gap-2">
                   <Instagram size={18} className="text-pink-500" />
-                  Seguici su Instagram
+                  <TikTokIcon className="w-5 h-5 text-foreground" />
+                  Seguici sui Social
                 </h3>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Scopri i nostri piatti, i cocktail e le storie del locale in tempo reale.
+                  Scopri i nostri piatti, i cocktail e i video del locale in tempo reale su Instagram e TikTok.
                 </p>
                 <div className="mt-4 flex flex-wrap gap-3">
                   <a
@@ -163,6 +164,15 @@ function ContattiPage() {
                   >
                     <Instagram size={18} />
                     @sottoscala___
+                  </a>
+                  <a
+                    href={TIKTOK_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 rounded-full bg-zinc-900 border border-zinc-700 px-6 py-3 text-sm font-semibold text-white shadow-md transition-transform hover:scale-[1.03] active:scale-95"
+                  >
+                    <TikTokIcon className="w-4 h-4" />
+                    TikTok
                   </a>
                   <a
                     href={FACEBOOK_URL}
