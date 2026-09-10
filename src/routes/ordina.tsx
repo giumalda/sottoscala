@@ -23,7 +23,7 @@ function OrdinaPage() {
           </p>
         </div>
 
-        <div className="mt-12 glass mx-auto max-w-3xl rounded-4xl p-8 sm:p-12 shadow-xl">
+     <div className="mt-12 glass w-full rounded-4xl p-8 sm:p-12 shadow-xl">
           <div className="grid gap-8 sm:grid-cols-3 mb-12">
             <div className="flex flex-col items-center text-center">
               <div className="p-4 rounded-full bg-primary/10 text-primary mb-4">
