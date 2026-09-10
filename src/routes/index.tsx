@@ -10,8 +10,6 @@ import {
 } from "../components/SiteChrome";
 import { WhatsAppIcon } from "../components/WhatsAppIcon";
 import heroImage from "../assets/hero-sottoscala.jpg";
-// Importiamo correttamente il logo grafico del Sottoscala
-import logoImage from "../assets/logo-sottoscala.png.asset.json";
 
 const IMG = "https://api.moremenu.it/v1/user-files";
 const COVER = `${IMG}/restaurant-cover-image-2e07ce36-d29e-49ef-924b-2a3884d5bf93-1715724443753.jpeg`;
@@ -129,9 +127,9 @@ function Index() {
             {/* Logo ufficiale grande e centrato */}
             <div className="mb-6 flex items-center justify-center">
               <img
-                src={logoImage}
+                src="/SOTTOSCALA.png"
                 alt="Logo Sottoscala"
-                className="h-16 sm:h-24 w-auto object-contain drop-shadow-md"
+                className="h-20 sm:h-28 w-auto object-contain drop-shadow-md"
               />
             </div>
 
