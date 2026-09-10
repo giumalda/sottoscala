@@ -12,24 +12,24 @@ export const Route = createFileRoute("/al-mare")({
 function AlMarePage() {
   return (
     <SiteLayout>
-      {/* Sfondo con la nuova immagine e velatura scura */}
-      <div className="fixed inset-0 -z-10 overflow-hidden">
+      {/* Sfondo con immagine fissa a tutto schermo e velatura scura */}
+      <div className="fixed inset-0 -z-10 overflow-hidden bg-slate-950">
         <img
           src="/bg-al-mare.jpg"
           alt="Sottoscala al Mare sfondo"
           className="h-full w-full object-cover object-center filter brightness-90"
         />
-        <div className="absolute inset-0 bg-slate-950/75 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-[2px]" />
       </div>
 
-      <main className="mx-auto max-w-[1100px] px-4 pb-24 pt-28 sm:px-6 sm:pt-32 text-white">
+      <main className="mx-auto max-w-[1100px] px-4 pb-24 pt-28 sm:px-6 sm:pt-32 text-white relative z-10">
         
         <div className="flex flex-col items-center text-center">
-          {/* Logo della location al mare */}
+          {/* Logo originale della location estiva */}
           <img 
             src="/logo-al-mare.png" 
             alt="Logo Sottoscala al Mare" 
-            className="h-28 w-auto mb-6 object-contain drop-shadow-lg"
+            className="h-24 sm:h-32 w-auto mb-6 object-contain drop-shadow-xl"
           />
           <p className="text-lg text-slate-200 max-w-2xl drop-shadow">
             La nostra location estiva a Castellaneta Marina. Eleganza, cocktail ricercati 
@@ -39,7 +39,7 @@ function AlMarePage() {
 
         <div className="mt-12 grid gap-8 md:grid-cols-2">
           {/* Box Posizione */}
-          <div className="glass rounded-4xl p-8 sm:p-10 flex flex-col justify-between border-blue-500/20 bg-slate-900/60">
+          <div className="glass rounded-4xl p-8 sm:p-10 flex flex-col justify-between border-blue-500/20 bg-slate-900/60 shadow-xl">
             <div>
               <h2 className="text-2xl font-bold flex items-center gap-2 text-white">
                 <MapPin className="text-blue-400" /> Dove Siamo
@@ -60,7 +60,7 @@ function AlMarePage() {
           </div>
 
           {/* Box Social */}
-          <div className="glass rounded-4xl p-8 sm:p-10 flex flex-col justify-between border-blue-500/20 bg-slate-900/60">
+          <div className="glass rounded-4xl p-8 sm:p-10 flex flex-col justify-between border-blue-500/20 bg-slate-900/60 shadow-xl">
             <div>
               <h2 className="text-2xl font-bold flex items-center gap-2 text-white">
                 <Instagram className="text-blue-400" /> Profilo Ufficiale
@@ -82,7 +82,7 @@ function AlMarePage() {
         </div>
 
         {/* Mappa Incorporata Castellaneta Marina */}
-        <div className="glass mt-8 overflow-hidden rounded-4xl p-4 sm:p-6 w-full border-blue-500/20 bg-slate-900/60">
+        <div className="glass mt-8 overflow-hidden rounded-4xl p-4 sm:p-6 w-full border-blue-500/20 bg-slate-900/60 shadow-xl">
           <div className="w-full h-96 rounded-3xl overflow-hidden shadow-inner">
             <iframe
               title="Mappa Sottoscala al Mare"
