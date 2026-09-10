@@ -123,7 +123,7 @@ function ContattiPage() {
             </div>
           </div>
 
-          {/* Card Orari e Social in evidenza */}
+          {/* Card Orari & Social in evidenza */}
           <div className="glass rounded-4xl p-8 sm:p-10 flex flex-col justify-between">
             <div>
               <h2 className="text-2xl font-bold tracking-tight">Orari &amp; Social</h2>
@@ -176,6 +176,23 @@ function ContattiPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Mappa incorporata */}
+        <div className="glass mt-12 overflow-hidden rounded-4xl p-4 sm:p-6">
+          <h2 className="text-2xl font-bold tracking-tight mb-4 px-2">Dove ci troviamo</h2>
+          <div className="w-full h-96 rounded-3xl overflow-hidden shadow-inner">
+            <iframe
+              title="Mappa Sottoscala Mottola"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.633469273574!2d17.0268!3d40.6453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13471f4562c55555%3A0x123456789abcdef!2sVia%20Giovanni%20Amendola%2C%201%2C%2074017%20Mottola%20TA!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={false}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </main>
