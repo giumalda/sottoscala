@@ -62,10 +62,12 @@ function MenuPage() {
                 className="rounded-full bg-[oklch(0.85_0.09_205)] px-7 py-3 text-base font-semibold text-[oklch(0.24_0.06_205)] transition-all duration-200 hover:brightness-110 active:scale-95"
               >
                 Ordina con Deliveroo
-      </a>
-            <div className="mt-6 flex items-center gap-2 text-base text-muted-foreground">
-              <Sparkles size={16} className="text-accent shrink-0" aria-hidden />
-              <span>Alcuni piatti hanno l'anteprima 3D / AR</span>
+    </a>
+            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 text-base text-muted-foreground w-full">
+              <span className="flex items-center gap-2">
+                <Sparkles size={16} className="text-accent shrink-0" aria-hidden />
+                Alcuni piatti hanno l'anteprima 3D / AR
+              </span>
             </div>
           </div>
         </div>
