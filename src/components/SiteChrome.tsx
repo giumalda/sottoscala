@@ -13,7 +13,10 @@ import {
   ShoppingBag,
   Bike,
 } from "lucide-react";
+import { InstallPrompt } from "../components/InstallPrompt";
 
+// E dentro il componente della Home inserisci:
+<InstallPrompt />
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
 // === ICONA TIKTOK ===
