@@ -7,7 +7,7 @@ export function QuickActionsBar() {
       <Link
         to="/prenota"
         className="glass group rounded-3xl p-5 flex items-center gap-4 transition-all hover:scale-[1.02] active:scale-95 border border-white/10 shadow-lg"
-      > 
+      >
         <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/20 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
           <Calendar size={22} />
         </div>
