@@ -44,10 +44,10 @@ export const SUMUP_GIFTCARD = "https://giftcards.sumup.com/order/MCEHC2DR";
 
 const NAV = [
   { to: "/", label: "Home" },
+  { to: "/al-mare", label: "Al Mare", highlight: true }, // Posizionato in alto, con indicatore luminoso
   { to: "/menu", label: "Menù" },
   { to: "/prenota", label: "Prenota" },
   { to: "/ordina", label: "Delivery" },
-  { to: "/al-mare", label: "Al Mare", isSpecial: true }, // Evidenziato
   { to: "/gift-card", label: "Gift Card" },
   { to: "/chi-siamo", label: "Chi Siamo" },
   { to: "/contatti", label: "Contatti" },
@@ -78,30 +78,25 @@ export function SiteHeader() {
             <Logo className="h-7 sm:h-8 md:h-9" isBlue={isAlMare} />
           </Link>
 
-          <div className="hidden items-center gap-4 lg:flex">
-            {NAV.slice(1).map((l) => {
-              if (l.isSpecial) {
-                return (
-                  <Link
-                    key={l.to}
-                    to={l.to}
-                    className="rounded-full bg-blue-600 px-4 py-1.5 text-sm xl:text-base font-bold text-white shadow-md transition-transform hover:scale-105 active:scale-95"
-                  >
-                    {l.label}
-                  </Link>
-                );
-              }
-              return (
-                <Link
-                  key={l.to}
-                  to={l.to}
-                  activeProps={{ className: "text-foreground font-semibold" }}
-                  className="text-sm xl:text-base text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  {l.label}
-                </Link>
-              );
-            })}
+         <div className="hidden items-center gap-4 lg:flex">
+            {NAV.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                activeProps={{ className: "text-foreground font-semibold" }}
+                className={`relative text-sm xl:text-base transition-colors hover:text-foreground ${
+                  l.highlight ? "text-blue-400 font-medium" : "text-muted-foreground"
+                }`}
+              >
+                {l.label}
+                {l.highlight && (
+                  <span className="absolute -top-1 -right-2 flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                  </span>
+                )}
+              </Link>
+            ))}
             <a
               href={DELIVEROO_URL}
               target="_blank"
