@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Phone, MapPin, Clock, Instagram, Facebook, Bike } from "lucide-react";
+import { Phone, MapPin, Clock, Instagram, Facebook } from "lucide-react";
 
+// QUI c'era l'errore: abbiamo aggiunto TIKTOK_URL e TikTokIcon per farli funzionare
 import {
   SiteLayout,
   PHONE_DISPLAY,
@@ -9,7 +10,8 @@ import {
   GOOGLE_MAPS_URL,
   INSTAGRAM_URL,
   FACEBOOK_URL,
-  DELIVEROO_URL,
+  TIKTOK_URL,
+  TikTokIcon
 } from "../components/SiteChrome";
 import { WhatsAppIcon } from "../components/WhatsAppIcon";
 
@@ -111,15 +113,6 @@ function ContattiPage() {
                 <Phone size={16} />
                 Chiama Ora
               </a>
-              <a
-                href={DELIVEROO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-full bg-[oklch(0.85_0.09_205)] px-6 py-3 text-sm font-semibold text-[oklch(0.24_0.06_205)] shadow-md transition-all hover:brightness-110 active:scale-95"
-              >
-                <Bike size={16} />
-                Ordina su Deliveroo
-              </a>
             </div>
           </div>
 
@@ -145,7 +138,7 @@ function ContattiPage() {
                 </div>
               </div>
 
-     {/* Social in evidenza */}
+              {/* Social in evidenza con TikTok */}
               <div className="mt-8 pt-6 border-t border-border/60">
                 <h3 className="font-semibold text-lg flex items-center gap-2">
                   <Instagram size={18} className="text-pink-500" />
@@ -153,7 +146,7 @@ function ContattiPage() {
                   Seguici sui Social
                 </h3>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Scopri i nostri piatti, i cocktail e i video del locale in tempo reale su Instagram e TikTok.
+                  Scopri i nostri piatti, i cocktail e i video del locale in tempo reale.
                 </p>
                 <div className="mt-4 flex flex-wrap gap-3">
                   <a
