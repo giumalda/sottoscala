@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MapPin, Instagram, Palmtree } from "lucide-react";
+import { MapPin, Instagram } from "lucide-react";
 import { SiteLayout } from "../components/SiteChrome";
 
 export const Route = createFileRoute("/al-mare")({
@@ -15,55 +15,78 @@ function AlMarePage() {
       <main className="mx-auto max-w-[1100px] px-4 pb-24 pt-28 sm:px-6 sm:pt-32">
         
         <div className="flex flex-col items-center text-center">
-          <div className="p-4 rounded-full bg-blue-500/20 text-blue-400 mb-6">
-            <Palmtree size={48} />
-          </div>
-          <h1 className="text-4xl font-extrabold tracking-tight md:text-6xl text-blue-100">
-            Sottoscala <span className="text-blue-500">al Mare</span>
+          {/* Logo Nuovo */}
+          <img 
+            src="/logo-al-mare.png" 
+            alt="Logo Sottoscala al Mare" 
+            className="h-28 w-auto mb-8 object-contain"
+          />
+          <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl text-blue-500">
+            La nostra location estiva
           </h1>
-          <p className="mt-6 text-xl text-muted-foreground max-w-2xl">
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
             La stessa qualità del Sottoscala, ora a due passi dalla spiaggia. 
-            Vieni a scoprire la nostra nuova location estiva.
+            Vieni a scoprire il nuovo locale a Castellaneta Marina.
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-2">
-          {/* Posizione */}
-          <div className="glass rounded-4xl p-8 sm:p-10">
-            <h2 className="text-2xl font-bold flex items-center gap-2">
-              <MapPin className="text-blue-500" /> Dove Siamo
-            </h2>
-            <p className="mt-4 text-lg">
-              Lungomare Eroi del Mare, 23<br />
-              Castellaneta Marina (TA)
-            </p>
+        <div className="mt-12 grid gap-8 md:grid-cols-2">
+          {/* Box Posizione in Blu */}
+          <div className="glass rounded-4xl p-8 sm:p-10 flex flex-col justify-between">
+            <div>
+              <h2 className="text-2xl font-bold flex items-center gap-2 text-foreground">
+                <MapPin className="text-blue-500" /> Dove Siamo
+              </h2>
+              <p className="mt-4 text-lg">
+                Lungomare Eroi del Mare, 23<br />
+                74011 Castellaneta Marina (TA)
+              </p>
+            </div>
             <a
               href="https://www.google.com/maps/search/?api=1&query=Lungomare+Eroi+del+Mare+23+Castellaneta+Marina"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-block rounded-full bg-blue-500 px-6 py-3 text-sm font-semibold text-white transition-transform active:scale-95"
+              className="mt-8 flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition-transform hover:bg-blue-500 active:scale-95"
             >
-              Indicazioni Stradali
+              Apri in Google Maps
             </a>
           </div>
 
-          {/* Social */}
-          <div className="glass rounded-4xl p-8 sm:p-10">
-            <h2 className="text-2xl font-bold flex items-center gap-2">
-              <Instagram className="text-pink-500" /> Profilo Dedicato
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Segui la pagina ufficiale della location estiva per rimanere aggiornato su eventi e serate.
-            </p>
+          {/* Box Social in Blu */}
+          <div className="glass rounded-4xl p-8 sm:p-10 flex flex-col justify-between">
+            <div>
+              <h2 className="text-2xl font-bold flex items-center gap-2 text-foreground">
+                <Instagram className="text-blue-500" /> Profilo Ufficiale
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                Segui la pagina dedicata per rimanere aggiornato su eventi, serate e novità estive.
+              </p>
+            </div>
             <a
               href="https://www.instagram.com/sottoscala_al_mare"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 flex w-fit items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 px-6 py-3 text-sm font-semibold text-white transition-transform active:scale-95"
+              className="mt-8 flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition-transform hover:bg-blue-500 active:scale-95"
             >
               <Instagram size={18} />
               @sottoscala_al_mare
             </a>
+          </div>
+        </div>
+
+        {/* Mappa Incorporata Castellaneta Marina */}
+        <div className="glass mt-8 overflow-hidden rounded-4xl p-4 sm:p-6 w-full">
+          <div className="w-full h-96 rounded-3xl overflow-hidden shadow-inner">
+            <iframe
+              title="Mappa Sottoscala al Mare"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3032.534279768565!2d16.929761!3d40.485642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13476dd98533b3a3%3A0x6b4f7380f2d48c9!2sLungomare%20Eroi%20del%20Mare%2C%2023%2C%2074011%20Castellaneta%20Marina%20TA!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={false}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </main>
