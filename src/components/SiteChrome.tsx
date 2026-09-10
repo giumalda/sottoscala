@@ -40,14 +40,12 @@ export const FOODBOOKING_DELIVERY = "https://www.foodbooking.com/ordering/restau
 export const SUMUP_GIFTCARD = "https://giftcards.sumup.com/order/MCEHC2DR";
 
 // Menu riordinato con Al Mare in evidenza luminosa
+// Menu principale pulito ed essenziale
 const NAV = [
   { to: "/", label: "Home" },
   { to: "/al-mare", label: "Al Mare", highlight: true },
   { to: "/chi-siamo", label: "Chi Siamo" },
   { to: "/menu", label: "Menù" },
-  { to: "/prenota", label: "Prenota" },
-  { to: "/ordina", label: "Delivery" },
-  { to: "/gift-card", label: "Gift Card" },
   { to: "/contatti", label: "Contatti" },
 ] as const;
 
