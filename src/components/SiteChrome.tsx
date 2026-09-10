@@ -16,7 +16,6 @@ import {
 
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
-// === ICONA TIKTOK ===
 export function TikTokIcon({ className = "w-5 h-5" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
@@ -25,7 +24,6 @@ export function TikTokIcon({ className = "w-5 h-5" }: { className?: string }) {
   );
 }
 
-// === COSTANTI & LINK ===
 export const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Sottoscala%20Mottola";
 export const PHONE_DISPLAY = "351 466 7813";
 export const PHONE_TEL = "tel:+393514667813";
@@ -39,8 +37,7 @@ export const FOODBOOKING_RESERVATION = "https://www.foodbooking.com/ordering/?re
 export const FOODBOOKING_DELIVERY = "https://www.foodbooking.com/ordering/restaurant/menu/info?company_uid=2e1cff0d-716a-4123-8dcf-714a093138ec&restaurant_uid=c418f5bb-c92e-435c-ae98-ab61fdc28d75&facebook=true";
 export const SUMUP_GIFTCARD = "https://giftcards.sumup.com/order/MCEHC2DR";
 
-// Menu riordinato con Al Mare in evidenza luminosa
-// Menu principale pulito ed essenziale
+// Menu in alto essenziale e pulito
 const NAV = [
   { to: "/", label: "Home" },
   { to: "/al-mare", label: "Al Mare", highlight: true },
@@ -75,7 +72,7 @@ export function SiteHeader() {
           </Link>
 
           {/* Menu Desktop */}
-          <div className="hidden items-center gap-4 lg:flex">
+          <div className="hidden items-center gap-6 lg:flex">
             {NAV.map((l) => (
               <Link
                 key={l.to}
@@ -134,6 +131,29 @@ export function SiteHeader() {
                   )}
                 </Link>
               ))}
+              <div className="mt-4 pt-4 border-t border-border/40 grid grid-cols-2 gap-2">
+                <Link
+                  to="/prenota"
+                  onClick={() => setOpen(false)}
+                  className="rounded-2xl glass-soft p-3 text-center text-sm font-semibold flex flex-col items-center gap-1"
+                >
+                  Prenota
+                </Link>
+                <Link
+                  to="/ordina"
+                  onClick={() => setOpen(false)}
+                  className="rounded-2xl glass-soft p-3 text-center text-sm font-semibold flex flex-col items-center gap-1"
+                >
+                  Delivery
+                </Link>
+              </div>
+              <Link
+                to="/gift-card"
+                onClick={() => setOpen(false)}
+                className="mt-2 rounded-2xl glass-soft p-3 text-center text-sm font-semibold flex items-center justify-center gap-2"
+              >
+                Gift Card
+              </Link>
               <a
                 href={DELIVEROO_URL}
                 target="_blank"
@@ -205,6 +225,15 @@ export function SiteFooter() {
           </div>
 
           <div>
+            <h3 className="text-lg font-semibold">Link Rapidi</h3>
+            <div className="mt-4 flex flex-col gap-2.5 text-base text-muted-foreground">
+              <Link to="/prenota" className="hover:text-foreground transition-colors">Prenota un tavolo</Link>
+              <Link to="/ordina" className="hover:text-foreground transition-colors">Delivery &amp; Asporto</Link>
+              <Link to="/gift-card" className="hover:text-foreground transition-colors">Acquista Gift Card</Link>
+            </div>
+          </div>
+
+          <div>
             <h3 className="text-lg font-semibold">Social</h3>
             <div className="mt-4 flex flex-col gap-3 text-base">
               <a
@@ -235,28 +264,6 @@ export function SiteFooter() {
                 Facebook
               </a>
             </div>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold">Servizi</h3>
-            <ul className="mt-4 space-y-2 text-base text-muted-foreground">
-              <li className="flex items-center gap-2">
-                <WheatOff size={16} className={isAlMare ? "text-blue-400" : "text-primary"} aria-hidden />
-                Opzioni senza glutine
-              </li>
-              <li className="flex items-center gap-2">
-                <Leaf size={16} className={isAlMare ? "text-blue-400" : "text-primary"} aria-hidden />
-                Opzioni vegane
-              </li>
-              <li className="flex items-center gap-2">
-                <ShoppingBag size={16} className={isAlMare ? "text-blue-400" : "text-primary"} aria-hidden />
-                Asporto
-              </li>
-              <li className="flex items-center gap-2">
-                <Bike size={16} className={isAlMare ? "text-blue-400" : "text-primary"} aria-hidden />
-                Domicilio
-              </li>
-            </ul>
           </div>
         </div>
 
