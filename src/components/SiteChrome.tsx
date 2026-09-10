@@ -140,7 +140,7 @@ export function WhatsAppFab() {
 export function SiteFooter() {
   return (
     <footer id="contatti" className="px-4 pb-8">
-      <div className="glass mx-auto max-w-5xl rounded-4xl px-6 py-14 sm:px-10">
+      <div className="glass mx-auto max-w-[1050px] rounded-4xl px-6 py-14 sm:px-10">
         <Logo className="h-10" />
 
         <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
