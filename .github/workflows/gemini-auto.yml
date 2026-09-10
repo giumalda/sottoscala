@@ -1,8 +1,6 @@
 name: Gemini AI Assistant
 
 on:
-  pull_request:
-    types: [opened, synchronize]
   issue_comment:
     types: [created]
 
@@ -13,16 +11,13 @@ permissions:
 
 jobs:
   gemini:
-    if: |
-      github.event_name == 'pull_request' || 
-      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@gemini-cli'))
+    if: contains(github.event.comment.body, '@gemini-cli')
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout del codice
         uses: actions/checkout@v4
 
-      - name: Run Gemini CLI
-        uses: google-github-actions/run-gemini-cli@v0.1.22
+      - name: Avvia Gemini CLI
+        uses: google-github-actions/run-gemini-cli@v0
         with:
           gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
