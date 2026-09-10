@@ -37,7 +37,7 @@ function OrdinaPage() {
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <ShoppingBag className="text-[oklch(0.85_0.09_205)]" size={28} />
-                <h2 className="text-2xl font-bold">Asporto & Domicilio Diretto</h2>
+                <h2 className="text-2xl font-bold">Ordina dal Sottoscala</h2>
               </div>
               <p className="text-muted-foreground mb-8 leading-relaxed">
                 Ordina dal nostro menù per passare a ritirare in locale, oppure scegli la nostra consegna a domicilio diretta che copre un ampio raggio intorno a Mottola e zone limitrofe.
