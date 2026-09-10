@@ -26,7 +26,7 @@ export const WHATSAPP_URL = "https://wa.me/393514667813";
 export const ORDER_URL = "https://app.moremenu.it/menu/sottoscala";
 export const DELIVEROO_URL = "https://deliveroo.it/it/menu/bari/massafra/sottoscala-via-giovanni-amendola-1";
 export const INSTAGRAM_URL = "https://www.instagram.com/sottoscala___";
-export const FACEBOOK_URL = "https://www.facebook.com/people/Sottoscala/61554464331306/";
+export const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=100093060842951";
 
 const NAV = [
   { to: "/", label: "Home" },
