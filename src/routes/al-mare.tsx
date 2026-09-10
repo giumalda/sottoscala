@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MapPin, Instagram } from "lucide-react";
+import { MapPin, Instagram, Image as ImageIcon } from "lucide-react";
 import { SiteLayout } from "../components/SiteChrome";
 
 export const Route = createFileRoute("/al-mare")({
@@ -12,7 +12,7 @@ export const Route = createFileRoute("/al-mare")({
 function AlMarePage() {
   return (
     <SiteLayout>
-      {/* Sfondo con la nuova immagine e velatura scura */}
+      {/* Sfondo con immagine fissa e velatura scura */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <img
           src="/bg-al-mare.jpg"
@@ -35,6 +35,28 @@ function AlMarePage() {
             La nostra location estiva a Castellaneta Marina. Eleganza, cocktail ricercati 
             e ottima cucina a due passi dalla spiaggia.
           </p>
+        </div>
+
+        {/* Sezione Galleria Fotografica del Locale */}
+        <div className="mt-12">
+          <h2 className="text-2xl font-bold flex items-center gap-2 mb-6 text-white px-2">
+            <ImageIcon className="text-blue-400" /> Galleria del Locale
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="glass rounded-3xl overflow-hidden border-blue-500/20 bg-slate-900/50 aspect-video group">
+              <img 
+                src="/bg-al-mare.jpg" 
+                alt=" Atmosfera Sottoscala al Mare" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <div className="glass rounded-3xl overflow-hidden border-blue-500/20 bg-slate-900/50 aspect-video group flex items-center justify-center text-slate-400 text-sm">
+              <span className="p-4 text-center">Cocktail &amp; Sunset</span>
+            </div>
+            <div className="glass rounded-3xl overflow-hidden border-blue-500/20 bg-slate-900/50 aspect-video group flex items-center justify-center text-slate-400 text-sm">
+              <span className="p-4 text-center">La Terrazza sulla Spiaggia</span>
+            </div>
+          </div>
         </div>
 
         <div className="mt-12 grid gap-8 md:grid-cols-2">
