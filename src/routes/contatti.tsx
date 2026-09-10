@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Phone, MapPin, Clock, Instagram, Facebook } from "lucide-react";
 
-// QUI c'era l'errore: abbiamo aggiunto TIKTOK_URL e TikTokIcon per farli funzionare
 import {
-  SiteLayout,
+  SiteHeader,
+  WhatsAppFab,
   PHONE_DISPLAY,
   PHONE_TEL,
   WHATSAPP_URL,
@@ -21,8 +21,10 @@ export const Route = createFileRoute("/contatti")({
 
 function ContattiPage() {
   return (
-    <SiteLayout>
-      <main className="mx-auto max-w-[1100px] px-4 pb-24 pt-28 sm:px-6 sm:pt-32">
+    <div className="min-h-screen flex flex-col">
+      <SiteHeader />
+      
+      <main className="flex-1 mx-auto max-w-[1100px] w-full px-4 pb-24 pt-28 sm:px-6 sm:pt-32">
         <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
           Contatti &amp; Posizione
         </h1>
@@ -199,6 +201,8 @@ function ContattiPage() {
           </div>
         </div>
       </main>
-    </SiteLayout>
+
+      <WhatsAppFab />
+    </div>
   );
 }
