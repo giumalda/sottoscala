@@ -14,16 +14,6 @@ import {
 import { WhatsAppIcon } from "../components/WhatsAppIcon";
 
 export const Route = createFileRoute("/contatti")({
-  head: () => ({
-    meta: [
-      { title: "Contatti — SOTTOSCALA Mottola" },
-      {
-        name: "description",
-        content:
-          "Mettiti in contatto con il Sottoscala a Mottola. Indirizzo, numeri di telefono, orari di apertura, canali social e link per ordinare su Deliveroo.",
-      },
-    ],
-  }),
   component: ContattiPage,
 });
 
