@@ -13,10 +13,7 @@ import {
   ShoppingBag,
   Bike,
 } from "lucide-react";
-import { InstallPrompt } from "../components/InstallPrompt";
 
-// E dentro il componente della Home inserisci:
-<InstallPrompt />
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
 // === ICONA TIKTOK ===
@@ -42,9 +39,10 @@ export const FOODBOOKING_RESERVATION = "https://www.foodbooking.com/ordering/?re
 export const FOODBOOKING_DELIVERY = "https://www.foodbooking.com/ordering/restaurant/menu/info?company_uid=2e1cff0d-716a-4123-8dcf-714a093138ec&restaurant_uid=c418f5bb-c92e-435c-ae98-ab61fdc28d75&facebook=true";
 export const SUMUP_GIFTCARD = "https://giftcards.sumup.com/order/MCEHC2DR";
 
+// Menu riordinato con Al Mare in evidenza luminosa
 const NAV = [
   { to: "/", label: "Home" },
-  { to: "/al-mare", label: "Al Mare", highlight: true }, // Posizionato in alto, con indicatore luminoso
+  { to: "/al-mare", label: "Al Mare", highlight: true },
   { to: "/menu", label: "Menù" },
   { to: "/prenota", label: "Prenota" },
   { to: "/ordina", label: "Delivery" },
@@ -75,10 +73,11 @@ export function SiteHeader() {
       <div className={`glass mx-auto max-w-[1100px] overflow-hidden rounded-3xl transition-colors duration-300 ${isAlMare ? 'border-blue-500/30 bg-blue-950/40' : ''}`}>
         <nav className="flex items-center justify-between px-4 py-2.5 sm:px-5 sm:py-3">
           <Link to="/" className="flex items-center" aria-label="Sottoscala — home">
-            <Logo className="h-7 sm:h-8 md:h-9" isBlue={isAlMare} />
+            <Logo className="h-7 sm:h-8 md:h-9" />
           </Link>
 
-         <div className="hidden items-center gap-4 lg:flex">
+          {/* Menu Desktop */}
+          <div className="hidden items-center gap-4 lg:flex">
             {NAV.map((l) => (
               <Link
                 key={l.to}
@@ -117,6 +116,7 @@ export function SiteHeader() {
           </button>
         </nav>
 
+        {/* Menu Mobile */}
         {open && (
           <div className="nav-panel border-t border-border/60 px-5 py-6 lg:hidden">
             <div className="flex flex-col gap-1">
@@ -125,13 +125,15 @@ export function SiteHeader() {
                   key={l.to}
                   to={l.to}
                   onClick={() => setOpen(false)}
-                  className={`rounded-2xl px-3 py-3 text-lg font-medium transition-colors ${
-                    l.isSpecial 
-                      ? "bg-blue-600 text-white font-bold text-center my-1" 
-                      : "text-foreground hover:bg-foreground/10"
+                  activeProps={{ className: "bg-foreground/10 text-foreground" }}
+                  className={`rounded-2xl px-3 py-3 text-lg font-medium transition-colors flex items-center justify-between ${
+                    l.highlight ? "text-blue-400 font-semibold" : "text-foreground hover:bg-foreground/10"
                   }`}
                 >
                   {l.label}
+                  {l.highlight && (
+                    <span className="h-2 w-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)]" />
+                  )}
                 </Link>
               ))}
               <a
@@ -173,7 +175,7 @@ export function SiteFooter() {
   return (
     <footer id="contatti" className="px-4 pb-8">
       <div className={`glass mx-auto max-w-[1100px] rounded-4xl px-6 py-14 sm:px-10 transition-colors duration-300 ${isAlMare ? 'border-blue-500/30 bg-blue-950/30' : ''}`}>
-        <Logo className="h-10" isBlue={isAlMare} />
+        <Logo className="h-10" />
 
         <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
@@ -187,7 +189,7 @@ export function SiteFooter() {
                 {PHONE_DISPLAY}
               </a>
             </p>
-            <p className="mt-3 text-base text-muted-foreground">
+            <p className="mt-3 text-base text-muted-foreground whitespace-pre-line">
               {isAlMare ? "Lungomare Eroi del Mare, 23\nCastellaneta Marina (TA)" : "Via Giovanni Amendola, 1\n74017 Mottola (TA)"}
             </p>
           </div>
@@ -272,41 +274,6 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   const routerState = useRouterState();
   const isAlMare = routerState.location.pathname === "/al-mare";
   const [showCookieBanner, setShowCookieBanner] = useState(false);
-
-  // Inserisce automaticamente i meta tag per la PWA e iOS
-  useEffect(() => {
-    const metaTags = [
-      { name: "apple-mobile-web-app-capable", content: "yes" },
-      { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
-      { name: "apple-mobile-web-app-title", content: "Sottoscala" },
-    ];
-
-    metaTags.forEach((tag) => {
-      let element = document.querySelector(`meta[name="${tag.name}"]`);
-      if (!element) {
-        element = document.createElement("meta");
-        element.setAttribute("name", tag.name);
-        element.setAttribute("content", tag.content);
-        document.head.appendChild(element);
-      }
-    });
-
-    let linkManifest = document.querySelector('link[rel="manifest"]');
-    if (!linkManifest) {
-      linkManifest = document.createElement("link");
-      linkManifest.setAttribute("rel", "manifest");
-      linkManifest.setAttribute("href", "/manifest.json");
-      document.head.appendChild(linkManifest);
-    }
-
-    let linkAppleIcon = document.querySelector('link[rel="apple-touch-icon"]');
-    if (!linkAppleIcon) {
-      linkAppleIcon = document.createElement("link");
-      linkAppleIcon.setAttribute("rel", "apple-touch-icon");
-      linkAppleIcon.setAttribute("href", "/apple-touch-icon.png");
-      document.head.appendChild(linkAppleIcon);
-    }
-  }, []);
 
   useEffect(() => {
     const consent = localStorage.getItem("cookie-consent");
