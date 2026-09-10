@@ -53,16 +53,7 @@ function MenuPage() {
             <p className="mt-3 max-w-2xl text-lg text-muted-foreground">
               Tradizione pugliese e anima asiatica: {categories.length} sezioni,
               foto reali, prezzi e allergeni sempre aggiornati.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href={DELIVEROO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full bg-[oklch(0.85_0.09_205)] px-7 py-3 text-base font-semibold text-[oklch(0.24_0.06_205)] transition-all duration-200 hover:brightness-110 active:scale-95"
-              >
-                Ordina con Deliveroo
-  </div>
+          </p>
 
           <div className="mt-6 flex items-center justify-center gap-2 text-base text-muted-foreground w-full">
             <Sparkles size={16} className="text-accent shrink-0" aria-hidden />
