@@ -1,0 +1,15 @@
+{
+  "name": "Sottoscala Bistrò",
+  "short_name": "Sottoscala",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1b1e",
+  "theme_color": "#0d1b1e",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
