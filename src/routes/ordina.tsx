@@ -27,20 +27,20 @@ function OrdinaPage() {
           Delivery & Asporto
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-16">
-          Gusta i piatti del Sottoscala comodamente a casa tua. Scegli il nostro servizio di asporto diretto o affidati alla consegna di Deliveroo.
+          Gusta i piatti del Sottoscala comodamente a casa tua. Scegli il nostro servizio di asporto dal locale o affidati alla consegna di Deliveroo.
         </p>
         
         <div className="grid gap-8 sm:grid-cols-2">
           
-          {/* Opzione 1: Ordine Diretto (Asporto) */}
+          {/* Opzione 1: Asporto Diretto (Takeaway) */}
           <div className="glass rounded-4xl p-8 sm:p-10 flex flex-col justify-between border-white/10 shadow-xl text-left hover:scale-[1.02] transition-transform duration-300">
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <ShoppingBag className="text-[oklch(0.85_0.09_205)]" size={28} />
-                <h2 className="text-2xl font-bold">Ordine Diretto</h2>
+                <h2 className="text-2xl font-bold">Asporto (Takeaway)</h2>
               </div>
               <p className="text-muted-foreground mb-8 leading-relaxed">
-                Ordina online dal nostro menù e passa a ritirare i tuoi piatti caldi direttamente in locale a Mottola.
+                Ordina online dal nostro menù e passa a ritirare i tuoi piatti caldi e pronti direttamente nel nostro locale a Mottola.
               </p>
             </div>
             <a
@@ -49,7 +49,7 @@ function OrdinaPage() {
               rel="noopener noreferrer"
               className="group flex items-center justify-center gap-2 rounded-full bg-[oklch(0.85_0.09_205)] px-6 py-4 text-base font-bold text-[oklch(0.24_0.06_205)] shadow-[0_0_20px_rgba(103,232,249,0.3)] transition-all hover:brightness-110 active:scale-95"
             >
-              Ordina per il ritiro 
+              Ordina da asporto
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
             </a>
           </div>
@@ -58,11 +58,11 @@ function OrdinaPage() {
           <div className="glass rounded-4xl p-8 sm:p-10 flex flex-col justify-between border-white/10 shadow-xl text-left hover:scale-[1.02] transition-transform duration-300">
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <Bike className="text-[#00CCBC]" size={28} /> {/* Colore icona verde acqua ufficiale Deliveroo */}
-                <h2 className="text-2xl font-bold">Deliveroo</h2>
+                <Bike className="text-[#00CCBC]" size={28} />
+                <h2 className="text-2xl font-bold">Consegna a Domicilio</h2>
               </div>
               <p className="text-muted-foreground mb-8 leading-relaxed">
-                Vuoi la comodità della consegna a domicilio? Trovaci sull'app Deliveroo per un servizio rapido e tracciato.
+                Vuoi la comodità della consegna? Trovaci sull'app Deliveroo, effettuiamo consegne dirette a domicilio anche su Massafra e zone limitrofe.
               </p>
             </div>
             <a
