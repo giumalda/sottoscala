@@ -43,21 +43,21 @@ function AlMarePage() {
             <ImageIcon className="text-blue-400" /> Galleria del Locale
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            <div className="glass rounded-3xl overflow-hidden border-blue-500/20 bg-slate-900/50 aspect-video group">
-              <img 
-                src="/bg-al-mare.jpg" 
-                alt=" Atmosfera Sottoscala al Mare" 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-            <div className="glass rounded-3xl overflow-hidden border-blue-500/20 bg-slate-900/50 aspect-video group flex items-center justify-center text-slate-400 text-sm">
-              <span className="p-4 text-center">Cocktail &amp; Sunset</span>
-            </div>
-            <div className="glass rounded-3xl overflow-hidden border-blue-500/20 bg-slate-900/50 aspect-video group flex items-center justify-center text-slate-400 text-sm">
-              <span className="p-4 text-center">La Terrazza sulla Spiaggia</span>
-            </div>
-          </div>
-        </div>
+  <div className="glass rounded-3xl overflow-hidden border-blue-500/20 bg-slate-900/50 aspect-video group">
+    <img 
+      src="/bg-al-mare.jpg" 
+      alt="Sottoscala al Mare atmosfera" 
+      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+    />
+  </div>
+  <div className="glass rounded-3xl overflow-hidden border-blue-500/20 bg-slate-900/50 aspect-video group">
+    <img 
+      src="/tua-altra-foto.jpg" 
+      alt="Cocktail Sottoscala al Mare" 
+      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+    />
+  </div>
+</div>
 
         <div className="mt-12 grid gap-8 md:grid-cols-2">
           {/* Box Posizione */}
