@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Sottoscala a Mottola: tradizione pugliese e anima asiatica. Sushi fresco, pinse gourmet, signature cocktail e terrazza con vista sul golfo.",
+          "Sottoscala a Mottola: tradizione pugliese e anima asiatica. Sushi fresco, pinse gourmet e signature cocktail in un'affascinante location in pietra.",
       },
       {
         property: "og:title",
@@ -71,7 +71,7 @@ function Index() {
   const reviews = [
     {
       id: "mauronofrio",
-      quote: "Location ottima, vista su tutto il golfo, cibo di alta qualità.",
+      quote: "Location ottima, interni in pietra suggestivi e cibo di alta qualità.",
       author: "Mauronofrio M.",
     },
     {
@@ -83,7 +83,7 @@ function Index() {
     {
       id: "thefork-2",
       quote:
-        "Locale intimo e raccolto, gestione dei fratelli e del sushiman superlativa.",
+        "Locale intimo e raccolto, l'accoglienza della famiglia Notaristefano è superlativa.",
       author: "Utente TheFork",
     },
   ];
@@ -147,12 +147,12 @@ function Index() {
       >
         <div className="glass rounded-4xl p-8 sm:p-12">
           <h2 className="text-3xl font-bold leading-snug tracking-tight md:text-4xl">
-            Due fratelli, un sushiman, un'atmosfera unica
+            Un'antica cava in pietra, un'atmosfera unica
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
             Un locale nascosto sotto una rampa di scale nel centro di Mottola:
-            luci basse, pietra a vista e, pochi gradini più su, una terrazza da
-            cui nelle sere limpide si vedono le luci del golfo. Qui la dispensa
+            luci basse e un'affascinante struttura in pietra che richiama le antiche cave rupestri. 
+            Riaperto nel 2023 dalla famiglia Notaristefano, è il luogo in cui la dispensa
             pugliese incontra la tecnica del nostro Sushiman.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
