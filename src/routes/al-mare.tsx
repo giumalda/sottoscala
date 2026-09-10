@@ -12,32 +12,36 @@ export const Route = createFileRoute("/al-mare")({
 function AlMarePage() {
   return (
     <SiteLayout>
-      <main className="mx-auto max-w-[1100px] px-4 pb-24 pt-28 sm:px-6 sm:pt-32">
+      {/* Sfondo con immagine fissa e velatura scura */}
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+        <img
+          src="/bg-al-mare.jpg"
+          alt="Sottoscala al Mare sfondo"
+          className="h-full w-full object-cover object-center filter brightness-90"
+        />
+        <div className="absolute inset-0 bg-slate-950/75 backdrop-blur-[2px]" />
+      </div>
+
+      <main className="mx-auto max-w-[1100px] px-4 pb-24 pt-28 sm:px-6 sm:pt-32 text-white">
         
         <div className="flex flex-col items-center text-center">
-          {/* Logo Nuovo */}
-          <img 
-            src="/logo-al-mare.png" 
-            alt="Logo Sottoscala al Mare" 
-            className="h-28 w-auto mb-8 object-contain"
-          />
-          <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl text-blue-500">
-            La nostra location estiva
+          <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl text-blue-400 drop-shadow-md">
+            Sottoscala al Mare
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
-            La stessa qualità del Sottoscala, ora a due passi dalla spiaggia. 
-            Vieni a scoprire il nuovo locale a Castellaneta Marina.
+          <p className="mt-4 text-lg text-slate-200 max-w-2xl drop-shadow">
+            La nostra location estiva a Castellaneta Marina. Eleganza, cocktail ricercati 
+            e ottima cucina a due passi dalla spiaggia.
           </p>
         </div>
 
         <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {/* Box Posizione in Blu */}
-          <div className="glass rounded-4xl p-8 sm:p-10 flex flex-col justify-between">
+          {/* Box Posizione */}
+          <div className="glass rounded-4xl p-8 sm:p-10 flex flex-col justify-between border-blue-500/20 bg-slate-900/60">
             <div>
-              <h2 className="text-2xl font-bold flex items-center gap-2 text-foreground">
-                <MapPin className="text-blue-500" /> Dove Siamo
+              <h2 className="text-2xl font-bold flex items-center gap-2 text-white">
+                <MapPin className="text-blue-400" /> Dove Siamo
               </h2>
-              <p className="mt-4 text-lg">
+              <p className="mt-4 text-lg text-slate-300">
                 Lungomare Eroi del Mare, 23<br />
                 74011 Castellaneta Marina (TA)
               </p>
@@ -52,13 +56,13 @@ function AlMarePage() {
             </a>
           </div>
 
-          {/* Box Social in Blu */}
-          <div className="glass rounded-4xl p-8 sm:p-10 flex flex-col justify-between">
+          {/* Box Social */}
+          <div className="glass rounded-4xl p-8 sm:p-10 flex flex-col justify-between border-blue-500/20 bg-slate-900/60">
             <div>
-              <h2 className="text-2xl font-bold flex items-center gap-2 text-foreground">
-                <Instagram className="text-blue-500" /> Profilo Ufficiale
+              <h2 className="text-2xl font-bold flex items-center gap-2 text-white">
+                <Instagram className="text-blue-400" /> Profilo Ufficiale
               </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
+              <p className="mt-4 text-lg text-slate-300">
                 Segui la pagina dedicata per rimanere aggiornato su eventi, serate e novità estive.
               </p>
             </div>
@@ -75,7 +79,7 @@ function AlMarePage() {
         </div>
 
         {/* Mappa Incorporata Castellaneta Marina */}
-        <div className="glass mt-8 overflow-hidden rounded-4xl p-4 sm:p-6 w-full">
+        <div className="glass mt-8 overflow-hidden rounded-4xl p-4 sm:p-6 w-full border-blue-500/20 bg-slate-900/60">
           <div className="w-full h-96 rounded-3xl overflow-hidden shadow-inner">
             <iframe
               title="Mappa Sottoscala al Mare"
