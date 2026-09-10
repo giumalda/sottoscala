@@ -185,7 +185,7 @@ export function SiteFooter() {
             </h3>
             <p className="mt-4 text-base">
               <a href={PHONE_TEL} className="flex items-center gap-2 text-foreground hover:underline">
-                <Phone size={16} className="text-[oklch(0.72_0.19_145)]" aria-hidden />
+                <Phone size={16} className={isAlMare ? "text-blue-400" : "text-[oklch(0.72_0.19_145)]"} aria-hidden />
                 {PHONE_DISPLAY}
               </a>
             </p>
