@@ -12,7 +12,7 @@ export const Route = createFileRoute("/al-mare")({
 function AlMarePage() {
   return (
     <SiteLayout>
-      {/* Sfondo con immagine fissa a tutto schermo e velatura scura */}
+      {/* Sfondo con immagine fissa e velatura scura */}
       <div className="fixed inset-0 -z-10 overflow-hidden bg-slate-950">
         <img
           src="/bg-al-mare.jpg"
@@ -23,12 +23,10 @@ function AlMarePage() {
       </div>
 
       <main className="mx-auto max-w-[1100px] px-4 pb-24 pt-28 sm:px-6 sm:pt-32 text-white relative z-10">
-        
         <div className="flex flex-col items-center text-center">
-          {/* Logo originale della location estiva */}
-          <img 
-            src="/logo-al-mare.png" 
-            alt="Logo Sottoscala al Mare" 
+          <img
+            src="/logo-al-mare.png"
+            alt="Logo Sottoscala al Mare"
             className="h-24 sm:h-32 w-auto mb-6 object-contain drop-shadow-xl"
           />
           <p className="text-lg text-slate-200 max-w-2xl drop-shadow">
@@ -81,7 +79,7 @@ function AlMarePage() {
           </div>
         </div>
 
-        {/* Mappa Incorporata Castellaneta Marina */}
+        {/* Mappa Incorporata */}
         <div className="glass mt-8 overflow-hidden rounded-4xl p-4 sm:p-6 w-full border-blue-500/20 bg-slate-900/60 shadow-xl">
           <div className="w-full h-96 rounded-3xl overflow-hidden shadow-inner">
             <iframe
