@@ -1,177 +1,288 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Phone, MapPin, Clock, Instagram, Facebook, Mail } from "lucide-react";
-
+import { Link } from "@tanstack/react-router";
+import { useState, useEffect, type ReactNode } from "react";
 import {
-  SiteLayout,
-  PHONE_DISPLAY,
-  PHONE_TEL,
-  WHATSAPP_URL,
-  GOOGLE_MAPS_URL,
-  INSTAGRAM_URL,
-  FACEBOOK_URL,
-} from "../components/SiteChrome";
-import { WhatsAppIcon } from "../components/WhatsAppIcon";
+  Menu as MenuIcon,
+  X,
+  Phone,
+  MapPin,
+  Clock,
+  Instagram,
+  Facebook,
+  Leaf,
+  WheatOff,
+  ShoppingBag,
+  Bike,
+} from "lucide-react";
 
-export const Route = createFileRoute("/contatti")({
-  head: () => ({
-    meta: [
-      { title: "Contatti — SOTTOSCALA Mottola" },
-      {
-        name: "description",
-        content:
-          "Mettiti in contatto con il Sottoscala a Mottola. Indirizzo, numeri di telefono, orari di apertura e canali social.",
-      },
-    ],
-  }),
-  component: ContattiPage,
-});
+import logoAsset from "../assets/logo-sottoscala.png.asset.json";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
-function ContattiPage() {
+export const GOOGLE_MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=Sottoscala%20Mottola";
+
+export const PHONE_DISPLAY = "351 466 7813";
+export const PHONE_TEL = "tel:+393514667813";
+export const WHATSAPP_URL = "https://wa.me/393514667813";
+export const ORDER_URL = "https://app.moremenu.it/menu/sottoscala";
+export const DELIVEROO_URL = "https://deliveroo.it/it/menu/bari/massafra/sottoscala-via-giovanni-amendola-1";
+export const INSTAGRAM_URL = "https://www.instagram.com/sottoscala___";
+export const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=100093060842951";
+
+const NAV = [
+  { to: "/", label: "Home" },
+  { to: "/menu", label: "Menù" },
+  { to: "/chi-siamo", label: "Chi Siamo" },
+  { to: "/galleria", label: "Galleria" },
+  { to: "/contatti", label: "Contatti" },
+  { to: "/lavora-con-noi", label: "Lavora con Noi" },
+] as const;
+
+export function Logo({ className = "h-9" }: { className?: string }) {
   return (
-    <SiteLayout>
-      <main className="mx-auto max-w-6xl px-4 pb-24 pt-28 sm:px-6 sm:pt-32">
-        <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
-          Contatti &amp; Posizione
-        </h1>
-        <p className="mt-4 text-lg text-muted-foreground">
-          Vieni a trovarci nel centro di Mottola o contattaci per qualsiasi informazione.
-        </p>
+    <img
+      src="/SOTTOSCALA.png"
+      alt="Sottoscala — logo"
+      className={`w-auto ${className}`}
+      width={565}
+      height={169}
+    />
+  );
+}
 
-        <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {/* Card Informazioni */}
-          <div className="glass rounded-4xl p-8 sm:p-10 flex flex-col justify-between">
-            <div>
-              <h2 className="text-2xl font-bold tracking-tight">Riferimenti</h2>
-              
-              <div className="mt-6 space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-2xl bg-primary/10 text-primary">
-                    <MapPin size={22} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg">Indirizzo</h3>
-                    <p className="mt-1 text-muted-foreground">
-                      Via Giovanni Amendola, 1<br />
-                      74017 Mottola (TA)
-                    </p>
-                    <a
-                      href={GOOGLE_MAPS_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block mt-2 text-sm font-semibold text-primary hover:underline"
-                    >
-                      Apri su Google Maps →
-                    </a>
-                  </div>
-                </div>
+export function SiteHeader() {
+  const [open, setOpen] = useState(false);
 
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-2xl bg-primary/10 text-primary">
-                    <Phone size={22} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg">Telefono</h3>
-                    <p className="mt-1">
-                      <a
-                        href={PHONE_TEL}
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        {PHONE_DISPLAY}
-                      </a>
-                    </p>
-                  </div>
-                </div>
+  return (
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-3 sm:pt-4">
+      <div className="glass mx-auto max-w-5xl overflow-hidden rounded-3xl">
+        <nav className="flex items-center justify-between px-4 py-2.5 sm:px-5 sm:py-3">
+          <Link to="/" className="flex items-center" aria-label="Sottoscala — home">
+            <Logo className="h-7 sm:h-8 md:h-9" />
+          </Link>
 
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-2xl bg-[oklch(0.72_0.19_145)]/10 text-[oklch(0.72_0.19_145)]">
-                    <WhatsAppIcon className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg">WhatsApp</h3>
-                    <p className="mt-1">
-                      <a
-                        href={WHATSAPP_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        Scrivici direttamente un messaggio
-                      </a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="hidden items-center gap-6 lg:flex">
+            {NAV.slice(1).map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                activeProps={{ className: "text-foreground font-semibold" }}
+                className="text-base text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {l.label}
+              </Link>
+            ))}
+            <a
+              href={DELIVEROO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-[oklch(0.85_0.09_205)] px-5 py-2.5 text-base font-semibold text-[oklch(0.24_0.06_205)] transition-all duration-200 hover:brightness-110 active:scale-95"
+            >
+              Ordina con Deliveroo
+            </a>
+          </div>
 
-            <div className="mt-10 pt-6 border-t border-border/60 flex flex-wrap gap-4">
+          <button
+            className="p-2 text-foreground transition-transform duration-200 active:scale-90 lg:hidden"
+            onClick={() => setOpen(!open)}
+            aria-expanded={open}
+            aria-label={open ? "Chiudi menu" : "Apri menu"}
+          >
+            {open ? <X size={24} /> : <MenuIcon size={24} />}
+          </button>
+        </nav>
+
+        {open && (
+          <div className="nav-panel border-t border-border/60 px-5 py-6 lg:hidden">
+            <div className="flex flex-col gap-1">
+              {NAV.map((l) => (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  onClick={() => setOpen(false)}
+                  activeProps={{ className: "bg-foreground/10 text-foreground" }}
+                  className="rounded-2xl px-3 py-3 text-lg font-medium text-foreground transition-colors hover:bg-foreground/10"
+                >
+                  {l.label}
+                </Link>
+              ))}
               <a
-                href={WHATSAPP_URL}
+                href={DELIVEROO_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-full bg-[oklch(0.72_0.19_145)] px-6 py-3 text-sm font-semibold text-[oklch(0.99_0_0)] shadow-md transition-all hover:brightness-110 active:scale-95"
+                className="mt-3 rounded-full bg-[oklch(0.85_0.09_205)] px-5 py-3 text-center text-base font-semibold text-[oklch(0.24_0.06_205)]"
               >
-                <WhatsAppIcon className="h-4 w-4" />
-                Scrivi su WhatsApp
+                Ordina con Deliveroo
               </a>
+            </div>
+          </div>
+        )}
+      </div>
+    </header>
+  );
+}
+
+export function WhatsAppFab() {
+  return (
+    <a
+      href={WHATSAPP_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Scrivici su WhatsApp"
+      className="wa-glow glass fixed bottom-5 right-5 z-50 flex h-16 w-16 items-center justify-center rounded-full transition-transform duration-200 hover:scale-105 active:scale-95"
+    >
+      <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[oklch(0.72_0.19_145)] text-[oklch(0.99_0_0)]">
+        <WhatsAppIcon className="h-7 w-7" />
+      </span>
+    </a>
+  );
+}
+
+export function SiteFooter() {
+  return (
+    <footer id="contatti" className="px-4 pb-8">
+      <div className="glass mx-auto max-w-5xl rounded-4xl px-6 py-14 sm:px-10">
+        <Logo className="h-10" />
+
+        <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <h3 className="flex items-center gap-2 text-lg font-semibold">
+              <MapPin size={18} className="text-primary" aria-hidden />
+              Contatti
+            </h3>
+            <p className="mt-4 text-base">
               <a
                 href={PHONE_TEL}
-                className="flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-md transition-transform hover:scale-[1.03] active:scale-95"
+                className="flex items-center gap-2 text-foreground hover:underline"
               >
-                <Phone size={16} />
-                Chiama Ora
+                <Phone size={16} aria-hidden />
+                {PHONE_DISPLAY}
+              </a>
+            </p>
+            <p className="mt-3 text-base text-muted-foreground">
+              Via Giovanni Amendola, 1<br />
+              74017 Mottola (TA)
+            </p>
+          </div>
+
+          <div>
+            <h3 className="flex items-center gap-2 text-lg font-semibold">
+              <Clock size={18} className="text-primary" aria-hidden />
+              Orari
+            </h3>
+            <ul className="mt-4 space-y-2 text-base text-muted-foreground">
+              <li>Lunedì: Chiuso</li>
+              <li>Mar – Gio – Dom: 18:00–00:30</li>
+              <li>Ven – Sab: 18:00–01:00</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold">Social</h3>
+            <div className="mt-4 flex flex-col gap-3 text-base">
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <Instagram size={18} className="text-primary" aria-hidden />
+                @sottoscala___
+              </a>
+              <a
+                href={FACEBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <Facebook size={18} className="text-primary" aria-hidden />
+                Sottoscala su Facebook
               </a>
             </div>
           </div>
 
-          {/* Card Orari e Social */}
-          <div className="glass rounded-4xl p-8 sm:p-10 flex flex-col justify-between">
-            <div>
-              <h2 className="text-2xl font-bold tracking-tight">Orari di Apertura</h2>
-              
-              <div className="mt-6 flex items-start gap-4">
-                <div className="p-3 rounded-2xl bg-primary/10 text-primary">
-                  <Clock size={22} />
-                </div>
-                <div>
-                  <ul className="space-y-3 text-muted-foreground">
-                    <li><strong className="text-foreground">Lunedì:</strong> Chiuso</li>
-                    <li><strong className="text-foreground">Martedì:</strong> 18:00 – 00:30</li>
-                    <li><strong className="text-foreground">Mercoledì:</strong> 18:00 – 00:30</li>
-                    <li><strong className="text-foreground">Giovedì:</strong> 18:00 – 00:30</li>
-                    <li><strong className="text-foreground">Venerdì:</strong> 18:00 – 01:00</li>
-                    <li><strong className="text-foreground">Sabato:</strong> 18:00 – 01:00</li>
-                    <li><strong className="text-foreground">Domenica:</strong> 18:00 – 00:30</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-border/60">
-                <h3 className="font-semibold text-lg">Social Media</h3>
-                <div className="mt-3 flex gap-4">
-                  <a
-                    href={INSTAGRAM_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-2xl glass-soft px-4 py-2.5 text-sm font-medium transition-colors hover:text-primary"
-                  >
-                    <Instagram size={18} />
-                    Instagram
-                  </a>
-                  <a
-                    href={FACEBOOK_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-2xl glass-soft px-4 py-2.5 text-sm font-medium transition-colors hover:text-primary"
-                  >
-                    <Facebook size={18} />
-                    Facebook
-                  </a>
-                </div>
-              </div>
-            </div>
+          <div>
+            <h3 className="text-lg font-semibold">Servizi</h3>
+            <ul className="mt-4 space-y-2 text-base text-muted-foreground">
+              <li className="flex items-center gap-2">
+                <WheatOff size={16} className="text-primary" aria-hidden />
+                Opzioni senza glutine
+              </li>
+              <li className="flex items-center gap-2">
+                <Leaf size={16} className="text-primary" aria-hidden />
+                Opzioni vegane
+              </li>
+              <li className="flex items-center gap-2">
+                <ShoppingBag size={16} className="text-primary" aria-hidden />
+                Asporto
+              </li>
+              <li className="flex items-center gap-2">
+                <Bike size={16} className="text-primary" aria-hidden />
+                Domicilio
+              </li>
+            </ul>
           </div>
         </div>
-      </main>
-    </SiteLayout>
+
+        <p className="mt-12 text-sm text-muted-foreground">
+          © {new Date().getFullYear()} Sottoscala — Mottola. Tutti i diritti riservati.
+        </p>
+      </div>
+    </footer>
+  );
+}
+
+/** Layout globale: header, contenuto, footer, FAB WhatsApp e banner cookie su ogni pagina. */
+export function SiteLayout({ children }: { children: ReactNode }) {
+  const [showCookieBanner, setShowCookieBanner] = useState(false);
+
+  useEffect(() => {
+    const consent = localStorage.getItem("cookie-consent");
+    if (!consent) {
+      setShowCookieBanner(true);
+    }
+  }, []);
+
+  const handleAcceptCookies = () => {
+    localStorage.setItem("cookie-consent", "accepted");
+    setShowCookieBanner(false);
+  };
+
+  const handleRejectCookies = () => {
+    localStorage.setItem("cookie-consent", "rejected");
+    setShowCookieBanner(false);
+  };
+
+  return (
+    <div className="min-h-screen">
+      <SiteHeader />
+      {children}
+      <SiteFooter />
+      <WhatsAppFab />
+
+      {showCookieBanner && (
+        <aside aria-label="Informativa sui cookie" className="fixed bottom-0 inset-x-0 z-50 p-4 sm:p-6">
+          <div className="mx-auto max-w-5xl glass rounded-3xl p-6 shadow-2xl border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-muted-foreground text-center sm:text-left">
+              Questo sito utilizza i cookie per migliorare l'esperienza di navigazione. 
+              Puoi accettare o rifiutare l'utilizzo dei cookie.
+            </p>
+            <div className="flex items-center gap-3 shrink-0">
+              <button
+                onClick={handleRejectCookies}
+                className="rounded-full px-5 py-2.5 text-sm font-semibold glass-soft transition-transform active:scale-95"
+              >
+                Rifiuta
+              </button>
+              <button
+                onClick={handleAcceptCookies}
+                className="rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground transition-transform active:scale-95"
+              >
+                Accetta
+              </button>
+            </div>
+          </div>
+        </aside>
+      )}
+    </div>
   );
 }
