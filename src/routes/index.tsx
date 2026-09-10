@@ -10,7 +10,6 @@ import {
 } from "../components/SiteChrome";
 import { WhatsAppIcon } from "../components/WhatsAppIcon";
 import heroImage from "../assets/hero-sottoscala.jpg";
-import logoImage from "../assets/logo-sottoscala.png.asset.json"; // Usiamo il logo del progetto
 
 const IMG = "https://api.moremenu.it/v1/user-files";
 const COVER = `${IMG}/restaurant-cover-image-2e07ce36-d29e-49ef-924b-2a3884d5bf93-1715724443753.jpeg`;
@@ -111,7 +110,7 @@ function Index() {
 
   return (
     <SiteLayout>
-      {/* Hero con Logo in grande al centro */}
+      {/* Hero */}
       <section className="relative flex min-h-[75vh] items-center justify-center overflow-hidden px-4 pb-12 pt-32 text-center sm:min-h-[85vh]">
         <img
           src={heroImage}
@@ -122,13 +121,13 @@ function Index() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
 
-        <div className="relative mx-auto w-full max-w-4xl flex flex-col items-center">
+        <div className="relative mx-auto w-full max-w-6xl flex flex-col items-center">
           <div className="glass w-full rounded-4xl px-6 py-10 sm:px-12 sm:py-14 flex flex-col items-center">
             
-            {/* Logo in grande */}
+            {/* Logo centrale grande */}
             <div className="mb-6 flex items-center justify-center">
-              <span className="text-3xl sm:text-5xl font-black tracking-widest text-primary uppercase">
-                SOTTOSCALA
+              <span className="text-3xl sm:text-5xl font-extrabold tracking-widest text-primary uppercase">
+                Sottoscala
               </span>
             </div>
 
@@ -146,7 +145,7 @@ function Index() {
               sushi fresco, pinse gourmet e signature cocktail in un'antica struttura in pietra.
             </p>
 
-            {/* Pulsante Menu posizionato prima di Chiama/Prenota */}
+            {/* Pulsante Menu prima di Chiama/Ordina */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4 w-full justify-center">
               <Link
                 to="/menu"
@@ -182,7 +181,7 @@ function Index() {
         </div>
       </section>
 
-      {/* Chi Siamo — accenno breve, il racconto completo è in /chi-siamo */}
+      {/* Chi Siamo */}
       <section
         id="chi-siamo"
         className="mx-auto max-w-6xl scroll-mt-32 px-4 py-20 sm:px-6"
@@ -317,10 +316,10 @@ function Index() {
         </p>
       </section>
 
-      {/* Banner Cookie */}
+      {/* Cookie Banner */}
       {showCookieBanner && (
         <aside aria-label="Informativa sui cookie" className="fixed bottom-0 inset-x-0 z-50 p-4 sm:p-6">
-          <div className="mx-auto max-w-4xl glass rounded-3xl p-6 shadow-2xl border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mx-auto max-w-6xl glass rounded-3xl p-6 shadow-2xl border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground text-center sm:text-left">
               Questo sito utilizza i cookie per migliorare l'esperienza di navigazione. 
               Puoi accettare o rifiutare l'utilizzo dei cookie.
