@@ -1,25 +1,21 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Calendar, UtensilsCrossed, Gift, ArrowRight } from "lucide-react";
 import { SiteLayout, DELIVEROO_URL } from "../components/SiteChrome";
-import { Calendar, UtensilsCrossed, Gift, ArrowRight, MapPin, Phone } from "lucide-react";
-import { Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [{ title: "Sottoscala — Ristorante & Cocktail Bar a Mottola" }],
-  }),
-  component: HomePage,
+  component: Home,
 });
 
-function HomePage() {
+function Home() {
   return (
     <SiteLayout>
-      {/* Sfondo fisso della Home */}
+      {/* Sfondo originale della Home */}
       <div className="fixed inset-0 -z-10 bg-[url('/bg-home.jpg')] bg-cover bg-center bg-no-repeat" />
       <div className="fixed inset-0 -z-10 bg-background/80 backdrop-blur-sm" />
 
       <main className="mx-auto max-w-[1100px] px-4 pb-24 pt-32 sm:px-6 sm:pt-36">
         
-        {/* Sezione Principale / Hero */}
+        {/* Contenuto originale della Home */}
         <div className="flex flex-col items-center text-center py-12 sm:py-16">
           <span className="px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-primary/10 text-primary mb-6 border border-primary/20">
             Mottola (TA) • Via Giovanni Amendola, 1
@@ -49,7 +45,7 @@ function HomePage() {
           </div>
         </div>
 
-        {/* Sezione Servizi / Azioni Rapide */}
+        {/* Nuova sezione aggiunta per i tre servizi secondari */}
         <div className="my-16">
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">I nostri servizi</h2>
