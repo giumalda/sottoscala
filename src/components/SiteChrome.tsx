@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState, type ReactNode } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import {
   Menu as MenuIcon,
   X,
@@ -231,14 +231,58 @@ export function SiteFooter() {
   );
 }
 
-/** Layout globale: header, contenuto, footer e FAB WhatsApp su ogni pagina. */
+/** Layout globale: header, contenuto, footer, FAB WhatsApp e banner cookie su ogni pagina. */
 export function SiteLayout({ children }: { children: ReactNode }) {
+  const [showCookieBanner, setShowCookieBanner] = useState(false);
+
+  useEffect(() => {
+    const consent = localStorage.getItem("cookie-consent");
+    if (!consent) {
+      setShowCookieBanner(true);
+    }
+  }, []);
+
+  const handleAcceptCookies = () => {
+    localStorage.setItem("cookie-consent", "accepted");
+    setShowCookieBanner(false);
+  };
+
+  const handleRejectCookies = () => {
+    localStorage.setItem("cookie-consent", "rejected");
+    setShowCookieBanner(false);
+  };
+
   return (
     <div className="min-h-screen">
       <SiteHeader />
       {children}
       <SiteFooter />
       <WhatsAppFab />
+
+      {showCookieBanner && (
+        <aside aria-label="Informativa sui cookie" className="fixed bottom-0 inset-x-0 z-50 p-4 sm:p-6">
+          <div className="mx-auto max-w-6xl glass rounded-3xl p-6 shadow-2xl border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-muted-foreground text-center sm:text-left">
+              Questo sito utilizza i cookie per migliorare l'esperienza di navigazione. 
+              Puoi accettare o rifiutare l'utilizzo dei cookie.
+            </p>
+            <div className="flex items-center gap-3 shrink-0">
+              <button
+                onClick={handleRejectCookies}
+                className="rounded-full px-5 py-2.5 text-sm font-semibold glass-soft transition-transform active:scale-95"
+              >
+                Rifiuta
+              </button>
+              <button
+                onClick={handleAcceptCookies}
+                className="rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground transition-transform active:scale-95"
+              >
+                Accetta
+              </button>
+            </div>
+          </div>
+        </aside>
+      )}
     </div>
   );
 }
