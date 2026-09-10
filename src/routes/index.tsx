@@ -1,58 +1,43 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Calendar, UtensilsCrossed, Gift, ArrowRight } from "lucide-react";
-import { SiteLayout, DELIVEROO_URL } from "../components/SiteChrome";
+import { SiteLayout, Logo } from "../components/SiteChrome";
 
 export const Route = createFileRoute("/")({
-  component: Home,
+  head: () => ({
+    meta: [{ title: "Sottoscala — Ristorante & Cocktail Bar a Mottola" }],
+  }),
+  component: HomePage,
 });
 
-function Home() {
+function HomePage() {
   return (
     <SiteLayout>
       {/* Sfondo originale della Home */}
-      <div className="fixed inset-0 -z-10 bg-[url('/bg-home.jpg')] bg-cover bg-center bg-no-repeat" />
-      <div className="fixed inset-0 -z-10 bg-background/80 backdrop-blur-sm" />
+      <div className="fixed inset-0 -z-10 bg-[url('/bg-home.jpg')] bg-cover bg-center" />
+      <div className="fixed inset-0 -z-10 bg-background/80 backdrop-blur-[2px]" />
 
-      <main className="mx-auto max-w-[1100px] px-4 pb-24 pt-32 sm:px-6 sm:pt-36">
+      <main className="mx-auto max-w-[1100px] px-4 pb-24 pt-28 sm:px-6 sm:pt-32">
         
-        {/* Contenuto originale della Home */}
-        <div className="flex flex-col items-center text-center py-12 sm:py-16">
-          <span className="px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-primary/10 text-primary mb-6 border border-primary/20">
-            Mottola (TA) • Via Giovanni Amendola, 1
-          </span>
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight max-w-3xl leading-tight">
-            Gusto, eleganza e convivialità nel cuore di Mottola
+        {/* Intestazione Home di prima */}
+        <div className="flex flex-col items-center text-center pb-8 sm:pb-12">
+          <Logo className="h-20 sm:h-28 mb-6 drop-shadow-xl" />
+          <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl drop-shadow-sm">
+            Benvenuti al Sottoscala
           </h1>
-          <p className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-2xl">
-            Dal calore del nostro locale storico nel centro alle serate estive sulla spiaggia a Castellaneta Marina con Sottoscala al Mare.
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
+            Ristorante, cocktail bar e luogo di ritrovo nel cuore di Mottola.
           </p>
-
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Link
-              to="/al-mare"
-              className="rounded-full bg-blue-600 px-8 py-4 text-base font-semibold text-white shadow-lg transition-transform hover:bg-blue-500 active:scale-95"
-            >
-              Scopri Sottoscala al Mare →
-            </Link>
-            <a
-              href={DELIVEROO_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-[oklch(0.85_0.09_205)] px-8 py-4 text-base font-semibold text-[oklch(0.24_0.06_205)] shadow-lg transition-transform hover:brightness-110 active:scale-95"
-            >
-              Ordina con Deliveroo
-            </a>
-          </div>
         </div>
 
-        {/* Nuova sezione aggiunta per i tre servizi secondari */}
-        <div className="my-16">
+        {/* NUOVA SEZIONE: I nostri servizi (aggiunta sotto la home) */}
+        <div className="mt-8 mb-16">
           <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">I nostri servizi</h2>
-            <p className="mt-2 text-sm text-muted-foreground">Scegli come vivere l'esperienza Sottoscala</p>
+            <h2 className="text-3xl font-bold tracking-tight">I nostri servizi</h2>
+            <p className="mt-2 text-muted-foreground">Scegli come vivere l'esperienza Sottoscala</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* 1. Prenota */}
             <Link
               to="/prenota"
               className="glass group rounded-4xl p-8 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] border border-white/10 shadow-xl"
@@ -72,6 +57,7 @@ function Home() {
               </div>
             </Link>
 
+            {/* 2. Delivery & Asporto */}
             <Link
               to="/ordina"
               className="glass group rounded-4xl p-8 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] border border-white/10 shadow-xl"
@@ -91,6 +77,7 @@ function Home() {
               </div>
             </Link>
 
+            {/* 3. Gift Card */}
             <Link
               to="/gift-card"
               className="glass group rounded-4xl p-8 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] border border-white/10 shadow-xl"
