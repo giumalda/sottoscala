@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Phone, MapPin, Clock, Instagram, Facebook } from "lucide-react";
+import { Phone, MapPin, Clock, Instagram, Facebook, Bike } from "lucide-react";
 
 import {
   SiteLayout,
@@ -9,6 +9,7 @@ import {
   GOOGLE_MAPS_URL,
   INSTAGRAM_URL,
   FACEBOOK_URL,
+  DELIVEROO_URL,
 } from "../components/SiteChrome";
 import { WhatsAppIcon } from "../components/WhatsAppIcon";
 
@@ -19,7 +20,7 @@ export const Route = createFileRoute("/contatti")({
       {
         name: "description",
         content:
-          "Mettiti in contatto con il Sottoscala a Mottola. Indirizzo, numeri di telefono, orari di apertura e canali social.",
+          "Mettiti in contatto con il Sottoscala a Mottola. Indirizzo, numeri di telefono, orari di apertura, canali social e link per ordinare su Deliveroo.",
       },
     ],
   }),
@@ -119,6 +120,15 @@ function ContattiPage() {
               >
                 <Phone size={16} />
                 Chiama Ora
+              </a>
+              <a
+                href={DELIVEROO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 rounded-full bg-[oklch(0.85_0.09_205)] px-6 py-3 text-sm font-semibold text-[oklch(0.24_0.06_205)] shadow-md transition-all hover:brightness-110 active:scale-95"
+              >
+                <Bike size={16} />
+                Ordina su Deliveroo
               </a>
             </div>
           </div>
