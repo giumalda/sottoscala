@@ -77,16 +77,30 @@ export function SiteHeader() {
           </Link>
 
           <div className="hidden items-center gap-4 lg:flex">
-            {NAV.slice(1).map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                activeProps={{ className: "text-foreground font-semibold" }}
-                className="text-sm xl:text-base text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {l.label}
-              </Link>
-            ))}
+            {NAV.slice(1).map((l) => {
+              if (l.to === "/al-mare") {
+                return (
+                  <Link
+                    key={l.to}
+                    to={l.to}
+                    activeProps={{ className: "brightness-125" }}
+                    className="text-sm xl:text-base font-bold text-blue-500 transition-colors hover:text-blue-400"
+                  >
+                    {l.label}
+                  </Link>
+                );
+              }
+              return (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  activeProps={{ className: "text-foreground font-semibold" }}
+                  className="text-sm xl:text-base text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {l.label}
+                </Link>
+              );
+            })}
             <a
               href={DELIVEROO_URL}
               target="_blank"
@@ -110,17 +124,31 @@ export function SiteHeader() {
         {open && (
           <div className="nav-panel border-t border-border/60 px-5 py-6 lg:hidden">
             <div className="flex flex-col gap-1">
-              {NAV.map((l) => (
-                <Link
-                  key={l.to}
-                  to={l.to}
-                  onClick={() => setOpen(false)}
-                  activeProps={{ className: "bg-foreground/10 text-foreground" }}
-                  className="rounded-2xl px-3 py-3 text-lg font-medium text-foreground transition-colors hover:bg-foreground/10"
-                >
-                  {l.label}
-                </Link>
-              ))}
+              {NAV.map((l) => {
+                if (l.to === "/al-mare") {
+                  return (
+                    <Link
+                      key={l.to}
+                      to={l.to}
+                      onClick={() => setOpen(false)}
+                      className="rounded-2xl px-3 py-3 text-lg font-bold text-blue-500 transition-colors hover:bg-blue-500/10"
+                    >
+                      {l.label}
+                    </Link>
+                  );
+                }
+                return (
+                  <Link
+                    key={l.to}
+                    to={l.to}
+                    onClick={() => setOpen(false)}
+                    activeProps={{ className: "bg-foreground/10 text-foreground" }}
+                    className="rounded-2xl px-3 py-3 text-lg font-medium text-foreground transition-colors hover:bg-foreground/10"
+                  >
+                    {l.label}
+                  </Link>
+                );
+              })}
               <a
                 href={DELIVEROO_URL}
                 target="_blank"
