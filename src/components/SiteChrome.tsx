@@ -196,14 +196,14 @@ export function SiteFooter() {
         <Logo className="h-10" />
 
         <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
+         <div>
             <h3 className="flex items-center gap-2 text-lg font-semibold">
               <MapPin size={18} className={isAlMare ? "text-blue-400" : "text-primary"} aria-hidden />
               Contatti
             </h3>
             <p className="mt-4 text-base">
               <a href={PHONE_TEL} className="flex items-center gap-2 text-foreground hover:underline">
-                <Phone size={16} className={isAlMare ? "text-blue-400" : "text-[oklch(0.72_0.19_145)]"} aria-hidden />
+                <Phone size={16} className={isAlMare ? "text-blue-400" : "text-primary"} aria-hidden />
                 {PHONE_DISPLAY}
               </a>
             </p>
