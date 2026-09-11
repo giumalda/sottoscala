@@ -360,6 +360,27 @@ function Index() {
             Leggi tutte le 147 recensioni o lascia la tua su Google Maps
           </a>
         </div>
+        {/* Sezione Lascia una recensione rapida */}
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+        <div className="glass rounded-4xl p-8 sm:p-10 border-white/10 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight">Hai vissuto l'esperienza Sottoscala?</h2>
+            <p className="mt-2 text-muted-foreground text-sm sm:text-base">
+              Lascia una recensione o condividi la tua opinione con noi e gli altri clienti.
+            </p>
+          </div>
+          <div className="flex items-center gap-3 shrink-0">
+            <a
+              href={GOOGLE_MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-md transition-transform hover:scale-[1.03] active:scale-95"
+            >
+              Scrivi una recensione
+            </a>
+          </div>
+        </div>
+      </section>
 
         <p className="mt-6 max-w-3xl text-sm text-muted-foreground opacity-60">
           Le recensioni mostrate sono estratte dinamicamente da piattaforme
